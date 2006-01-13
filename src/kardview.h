@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright (C) 2001-2006 Anne-Marie Mahfouf <annma@kde.org>
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
     License as published by the Free Software Foundation.
@@ -21,7 +21,7 @@
 #include <qlayout.h>
 //Added by qt3to4:
 #include <QPixmap>
-#include <Q3GridLayout>
+#include <QGridLayout>
 #include <QResizeEvent>
 #include <Q3PtrList>
 
@@ -122,8 +122,8 @@ private slots:
 	void slotMatch();
 
 protected:
-	Q3GridLayout* grid;
-	Q3GridLayout* boardLayout;
+	QGridLayout* grid;
+	QGridLayout* boardLayout;
 
 protected:
 	virtual void resizeEvent( QResizeEvent * e );

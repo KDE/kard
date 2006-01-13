@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2001-2005 by Anne-Marie Mahfouf                              *
+ *   Copyright (C) 2001-2006 by Anne-Marie Mahfouf                              *
  *   annma@kde.org                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -12,8 +12,7 @@
 #define _KARDWIDGET_H_
 
 //Qt headers
-#include <qlabel.h>
-//Added by qt3to4:
+#include <QLabel>
 #include <QMouseEvent>
 #include <QResizeEvent>
 

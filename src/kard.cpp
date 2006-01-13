@@ -16,9 +16,8 @@
  */
 
 //Qt headers
-#include <qtooltip.h>
-#include <q3whatsthis.h>
-#include <qcheckbox.h>
+#include <QToolTip>
+#include <QWhatsThis>
 //KDE headers
 #include <kaction.h>
 #include <kapplication.h>
@@ -61,8 +60,8 @@ Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
     m_numCombo->insertItem(i18n("16 Cards"), 3);
     m_numCombo->insertItem(i18n("20 Cards"), 4);
     m_numCombo->insertItem(i18n("24 Cards"), 5);
-    QToolTip::add( m_numCombo, i18n( "Choose the number of cards" ) );
-    Q3WhatsThis::add( m_numCombo, i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );
+    m_numCombo->setToolTip( i18n( "Choose the number of cards" ) );
+    m_numCombo->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );
     
     //adding themes combobox
     QStringList themesList;
@@ -75,8 +74,8 @@ Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
     toolBar()->insertSeparator(-1, 1); //id=1 for separator
     toolBar()->insertCombo(themesList, 4, false, SIGNAL(activated(int )), this, SLOT(slotSetTheme(int )));
     m_themeCombo = toolBar()->getCombo(4);
-    QToolTip::add( m_themeCombo, i18n( "Choose the theme for the cards" ) );
-    Q3WhatsThis::add( m_themeCombo, i18n( "You can choose here the theme for the backs of the cards" ) );
+    m_themeCombo->setToolTip( i18n( "Choose the theme for the cards" ) );
+    m_themeCombo->setWhatsThis(  i18n( "You can choose here the theme for the backs of the cards" ) );
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     

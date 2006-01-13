@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2001-2005 by Anne-Marie Mahfouf                              *
+ *   Copyright (C) 2001-2006 by Anne-Marie Mahfouf                              *
  *   annma@kde.org                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -13,11 +13,9 @@
 #include <kglobalsettings.h>
 #include <klocale.h>
 
-#include <qtooltip.h>
-#include <q3whatsthis.h>
-//Added by qt3to4:
+#include <QToolTip>
+#include <QWhatsThis>
 #include <QMouseEvent>
-#include <QLabel>
 #include <QResizeEvent>
 
 //#include "kard.h"
@@ -38,9 +36,9 @@ KardWidget::KardWidget(QWidget *parent, const char *name)
 	//TODO change the ? size depending of the card size
 	gris->setFont(QFont(KGlobalSettings::generalFont().family(), 40, QFont::Bold));
 	gris->setPalette( QPalette( QColor(Qt::lightGray) ) );
-	QToolTip::add( gris, i18n( "Click to see what is on the back of the card" ) );
-	Q3WhatsThis::add( gris, i18n( "Click on two cards to find out what is on the back of the card and try matching a pair" ) );
-	Q3WhatsThis::add( m_kardW, i18n( "Click on another kard and try matching a pair" ) );
+	gris->setToolTip( i18n( "Click to see what is on the back of the card" ) );
+	gris->setWhatsThis( i18n( "Click on two cards to find out what is on the back of the card and try matching a pair" ) );
+	m_kardW->setWhatsThis(i18n( "Click on another kard and try matching a pair" ) );
 	m_kardW->show();
 }
 

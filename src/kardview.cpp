@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright (C) 2001-2006 Anne-Marie Mahfouf <annma@kde.org>
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
     License as published by the Free Software Foundation.
@@ -18,7 +18,6 @@
 #include <qfile.h>
 #include <qtimer.h>
 //Added by qt3to4:
-#include <Q3GridLayout>
 #include <QTextStream>
 #include <QResizeEvent>
 //KDE headers
@@ -54,7 +53,7 @@ KardView::KardView(QWidget *parent)
   a[20]=a[21]=Qt::darkGreen;
   a[22]=a[23]=Qt::darkGray;
 
-  boardLayout = new Q3GridLayout( this, 1, 1, 0, 0, "boardLayout");
+  boardLayout = new QGridLayout( this, 1, 1, 0, 0, "boardLayout");
  }
 
 KardView::~KardView()
@@ -108,7 +107,7 @@ void KardView::game()
 		break;
 	}
 	//create the GUI
-	grid = new Q3GridLayout(0, 0, 0, 3, 0 );
+	grid = new QGridLayout(0, 0, 0, 3, 0 );
 	grid->setSpacing(3);
 	//create the cards
 	for (int i=0; i<n; i++)
