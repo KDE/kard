@@ -1,0 +1,143 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>Theme</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>Theme</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>180</width>
+            <height>221</height>
+        </rect>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>kcfg_Theme</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Choose the Cards' Theme</string>
+                    </property>
+                    <property name="flat">
+                        <bool>false</bool>
+                    </property>
+                    <property name="exclusive">
+                        <bool>true</bool>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>This dialog allows you to choose the theme that will be displayed when you return a card. In colors, you will have to match cards that are the same color; the house theme consists of pictures of objects you can find in a house; opposites are geometrical figures that match with opposite colors.</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>Colors</cstring>
+                            </property>
+                            <property name="text">
+                                <string>colors</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="buttonGroupId">
+                                <number>-1</number>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>house</cstring>
+                            </property>
+                            <property name="text">
+                                <string>House</string>
+                            </property>
+                            <property name="buttonGroupId">
+                                <number>-1</number>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>opposites</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Opposites</string>
+                            </property>
+                            <property name="buttonGroupId">
+                                <number>-1</number>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>syllables</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Syllables</string>
+                            </property>
+                            <property name="buttonGroupId">
+                                <number>-1</number>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>animals</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Animals</string>
+                            </property>
+                            <property name="buttonGroupId">
+                                <number>-1</number>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>food</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Food</string>
+                            </property>
+                            <property name="checked">
+                                <bool>false</bool>
+                            </property>
+                            <property name="buttonGroupId">
+                                <number>5</number>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Minimum</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>16</height>
+                        </size>
+                    </property>
+                </spacer>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

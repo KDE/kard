@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name="kardrc"/> 
+  <group name="General"> 
+      <entry name="Theme" type="Enum">
+      <label>Select the theme you want</label>
+      <choices>
+        <choice name="colors"/>
+        <choice name="house"/>
+        <choice name="opposites"/>
+        <choice name="syllables"/>
+	<choice name="animals"/>
+	<choice name="food"/>
+      </choices>
+      <default>colors</default>
+    </entry>
+     <entry name="Timer" type="Enum">
+      <label>Select the speed you want the cards to be displayed</label>
+      <choices>
+        <choice name="slow"/>
+        <choice name="medium"/>
+        <choice name="quick"/>
+      </choices>
+      <default>medium</default>
+    </entry>
+    <entry name="numCards" type="Int"> 
+      <label>Choose the number of displayed cards</label> 
+      <default>3</default> 
+    </entry>
+	<entry name="sound" type="Bool">
+	  <label>Do we use sound.</label>
+	  <default>true</default>
+    </entry>
+  </group>  
+  <group name="Language">
+    <entry name="SelectedLanguage" type="String">
+      <label>The language selected by the user</label>
+            <code>
+          	KConfigBase *globalConf = KGlobal::config();
+    		globalConf->setGroup("Locale");
+    		QString userLanguage = globalConf->readEntry("Language", "en");
+    		//keep only the first 4 characters
+		userLanguage = userLanguage.left(2);
+    	    </code>
+      <default code="true">userLanguage</default>
+    </entry> 
+    <entry name="LanguageCombobox" type="Int">
+      <label>The value of the ComboBox</label>
+      <code>
+      QStringList m_languages;
+       QStringList mdirs = KGlobal::dirs()->findDirs("data", "kard/data/");
+	if (mdirs.isEmpty()) return;
+	for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
+		QDir dir(*it);
+		m_languages += dir.entryList(QDir::Dirs, QDir::Name);
+		m_languages.remove(m_languages.find("."));
+		m_languages.remove(m_languages.find(".."));
+	}
+	m_languages.sort();
+	kdDebug() &lt;&lt; m_languages &lt;&lt; endl;
+      </code>
+      <default code="true">
+      (m_languages.findIndex(userLanguage) &lt; 0) ? 0 : m_languages.findIndex(userLanguage)
+      </default>
+      <min>0</min>
+    </entry>
+  </group>
+ </kcfg>

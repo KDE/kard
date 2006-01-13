@@ -1,0 +1,42 @@
+TODO - KARD
+-----------------
+- suppress Sounds in Settings -> Configure Kard dialog as it's already a ToggleAction
+
+New ideas
+- see how to make the cards in QPainter with a background (background is a png and could be changed)
+- see how to flip the cards to show them (rotate around y axis)
+- see how to add a picture under the cards so when the pairs are gone the picture is discovered
+- animate the pair to be put on the side
+
+-------------------------------
+[10:26:18] <pinotree> annma: you could use triple-buffering
+[10:26:21] <annma> wooow
+[10:26:27] <annma> this is above me
+[10:26:28] <pinotree> 1st buffer
+[10:26:32] <pinotree> :
+[10:26:42] <pinotree> the background, "immutable"
+[10:26:49] <pinotree> 2nd and 3rd buffer
+[10:27:10] <pinotree> two pixmaps with translucent background
+[10:27:44] <pinotree> you draw on one of them, and after painting all in a paintEvent, you do bitblt()
+[10:27:56] <pinotree> and bitblt again over the background
+[10:28:04] <pinotree> so you avoid flickering
+----------------------------------
+
+- use KNewStuff for themes when there are more than 10
+- combobox in toolbar for themes
+- translatorHowTo to explain how to make syllables.txt
+
+THEMES
+- pic + word theme via KNewStuff using all pics  (house, colors, animals, shapes, food) Per language. File format to be decided. Script to write to allow easy translation from english to other languages. Put file in i18n modules (when/if Kard moves in a keg or another module)?
+- implement KNewStuff to get other syllables theme and new pic themes.
+- Syllables mode per language. DONE
+- associate sound and letters/syllables (using KLettres data)
+- theme with pictures of instruments
+- associate the pictures with sounds
+- theme with sounds only
+
+GUI
+- have a picture as background so that when the cards are matched this picture appears
+
+MORE LONG TERM GOAL
+- develop a board which could load several young-kids oriented apps: kard, klettres, Simon says -like, a drawing+stamps tool, Potato-Guy? and others to be decided. Maybe similar to GCompris. GUI to be worked on. Plugins.

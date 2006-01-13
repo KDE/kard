@@ -1,0 +1,11 @@
+08 December 2004
+- add en/syllables.txt for syllables mode
+- add language choice in Settings
+
+03 December 2004
+- loadSyllables() is now done by reading a txt file containing syllables, 12 are picked at random to be used per game. It's done per language but the language setting remains to be done.
+- clean code by loading pictures by scanning dir content and not loading each file individually
+- add food theme thanks to Danny Allen who put it together. Credits for the pics are in the CREDITS file.
+
+02 December 2004
+- add animals theme thanks to Danny Allen who put it together. Credits for the pics are in the CREDITS file.
