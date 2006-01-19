@@ -39,7 +39,6 @@
 KardView::KardView(QWidget *parent)
     : QWidget(parent)
 {
-  //setAttribute(Qt::WA_StaticContents);
   ///Define the colors
   a[0]=a[1]=Qt::black;  //array for stocking the pairs
   a[2]=a[3]=Qt::red;    //of colours
@@ -55,7 +54,6 @@ KardView::KardView(QWidget *parent)
   a[22]=a[23]=Qt::darkGray;
 
   boardLayout = new QGridLayout( this, 1, 1, 0, 0, "boardLayout");
-  //setAutoFillBackground(true);
  }
 
 KardView::~KardView()
@@ -108,6 +106,7 @@ void KardView::game()
 			m=6;
 		break;
 	}
+	setAutoFillBackground(true);
 	//create the GUI
 	grid = new QGridLayout(0, 0, 0, 3, 0 );
 	grid->setSpacing(3);
@@ -119,7 +118,8 @@ void KardView::game()
 			k[i][j]=new KardWidget(this, "wid");
 			grid->addWidget( k[i][j], i, j );
 			m_listButtons.append(k[i][j]);
-			k[i][j]->show();
+			k[i][j]->m_kardW->setAutoFillBackground(true);
+			k[i][j]->gris->setAutoFillBackground(true);
 		}
 	}
 	boardLayout->addLayout( grid, 0, 0);

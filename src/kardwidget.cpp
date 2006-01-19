@@ -35,14 +35,12 @@ KardWidget::KardWidget(QWidget *parent, const char *name)
 	gris->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	//TODO change the ? size depending of the card size
 	gris->setFont(QFont(KGlobalSettings::generalFont().family(), 40, QFont::Bold));
+	gris->setToolTip( i18n( "Click to see what is on the back of the card" ) );
+	gris->setWhatsThis( i18n( "Click on two cards to find out what is on the back of the card and try matching a pair" ) );
 	QPalette palette1;
 	palette1.setColor(QPalette::Active, static_cast<QPalette::ColorRole>(10), QColor(Qt::lightGray));
 	gris->setPalette(palette1);
-	gris->setToolTip( i18n( "Click to see what is on the back of the card" ) );
-	gris->setWhatsThis( i18n( "Click on two cards to find out what is on the back of the card and try matching a pair" ) );
 	m_kardW->setWhatsThis(i18n( "Click on another kard and try matching a pair" ) );
-	//m_kardW->show();
-	//gris->setGeometry(0, 0, m_kardW->width(), m_kardW->height());
 }
 
 KardWidget::~KardWidget()
