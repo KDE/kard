@@ -30,6 +30,7 @@
 #include <kaudioplayer.h>
 //Project headers
 #include "kard.h"
+#include "kardview.h"
 // Settings
 #include "theme.h"
 #include "timer.h"

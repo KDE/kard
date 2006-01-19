@@ -17,6 +17,7 @@
 #include <QWhatsThis>
 #include <QMouseEvent>
 #include <QResizeEvent>
+#include <QLabel>
 
 //#include "kard.h"
 
@@ -26,7 +27,6 @@ KardWidget::KardWidget(QWidget *parent, const char *name)
 	//the kard widget inherits of QLabel and is a child of QWidget
 	//the m_kardW wiget is a QLabel on top of the kard widget
 	//the gris widget is a QLabel that will recover the m_kardW widget
-
 	setBackgroundColor(Qt::white);//the color that will stay after the kard disappeared
 	m_kardW = new QLabel(this);
 	m_kardW->setGeometry(0, 0, width(), height());
@@ -35,11 +35,14 @@ KardWidget::KardWidget(QWidget *parent, const char *name)
 	gris->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	//TODO change the ? size depending of the card size
 	gris->setFont(QFont(KGlobalSettings::generalFont().family(), 40, QFont::Bold));
-	gris->setPalette( QPalette( QColor(Qt::lightGray) ) );
+	QPalette palette1;
+	palette1.setColor(QPalette::Active, static_cast<QPalette::ColorRole>(10), QColor(Qt::lightGray));
+	gris->setPalette(palette1);
 	gris->setToolTip( i18n( "Click to see what is on the back of the card" ) );
 	gris->setWhatsThis( i18n( "Click on two cards to find out what is on the back of the card and try matching a pair" ) );
 	m_kardW->setWhatsThis(i18n( "Click on another kard and try matching a pair" ) );
-	m_kardW->show();
+	//m_kardW->show();
+	//gris->setGeometry(0, 0, m_kardW->width(), m_kardW->height());
 }
 
 KardWidget::~KardWidget()

@@ -24,15 +24,15 @@
 
 #include <kmainwindow.h>
 
-#include "kardview.h"
-
 class KComboBox;
 class KSelectAction;
 class KToggleAction;
 
+class KardView;
+
 const int IDS_NUMBER	= 100;
 const int IDS_TIME		= 102;
-const int IDS_THEME		= 104;
+const int IDS_THEME	= 104;
 const int IDS_LANG		= 106;
 const int IDS_TRY		= 108;
 

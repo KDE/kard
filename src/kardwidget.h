@@ -16,6 +16,8 @@
 #include <QMouseEvent>
 #include <QResizeEvent>
 
+class QLabel;
+
 /**
  *
  * Anne-Marie Mahfouf

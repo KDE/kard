@@ -15,8 +15,8 @@
  */
 
 //Qt headers
-#include <qfile.h>
-#include <qtimer.h>
+#include <QTimer>
+#include <QLabel>
 //Added by qt3to4:
 #include <QTextStream>
 #include <QResizeEvent>
@@ -39,6 +39,7 @@
 KardView::KardView(QWidget *parent)
     : QWidget(parent)
 {
+  //setAttribute(Qt::WA_StaticContents);
   ///Define the colors
   a[0]=a[1]=Qt::black;  //array for stocking the pairs
   a[2]=a[3]=Qt::red;    //of colours
@@ -54,6 +55,7 @@ KardView::KardView(QWidget *parent)
   a[22]=a[23]=Qt::darkGray;
 
   boardLayout = new QGridLayout( this, 1, 1, 0, 0, "boardLayout");
+  //setAutoFillBackground(true);
  }
 
 KardView::~KardView()
