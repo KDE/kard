@@ -24,6 +24,9 @@
 
 #include <kmainwindow.h>
 
+#include "generalui.h"
+#include "themeui.h"
+
 class KComboBox;
 class KSelectAction;
 class KToggleAction;
@@ -109,6 +112,10 @@ private:
     QStringList m_languages;
     
     QStringList m_sortedNames;
+
+    //settings
+    Ui::generalui ui_general;
+    Ui::themeui ui_theme;
 
 protected:
     ///Call an instance of KardView to set it as main widget

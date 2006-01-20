@@ -1,7 +1,7 @@
 ## Makefile.am for kard
 
 bin_PROGRAMS = kard
-kard_SOURCES = main.cpp kard.cpp kardview.cpp kardwidget.cpp theme.ui timer.ui kardsettings.kcfgc
+kard_SOURCES = main.cpp kard.cpp kardview.cpp kardwidget.cpp themeui.ui generalui.ui kardsettings.kcfgc
 kard_LDADD   = $(LIB_KFILE)
 
 SUBDIRS = $(AUTODIRS)

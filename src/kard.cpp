@@ -114,13 +114,15 @@ void Kard::optionsPreferences()
     //KConfigDialog didn't find an instance of this dialog, so lets create it : 
     KConfigDialog* dialog = new KConfigDialog( this, "settings",  KardSettings::self() );
     dialog->setModal(true); //makes it modal even if it's not the default
-    Timer *timer = new Timer(0, "Timer");
-    kdDebug() << "lang " << m_languages << endl;
-    timer->kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
-    timer->kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(KardSettings::selectedLanguage()));
-    timer->kcfg_sound->setChecked(KardSettings::sound());
-    dialog->addPage(timer, i18n("General"), "wizard");
-    dialog->addPage(new Theme(0, "Theme"), i18n("Theme"), "colors");
+    QWidget *generalSettingsDlg = new QWidget;
+    ui_general.setupUi(generalSettingsDlg);
+    ui_general.kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
+    ui_general.kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(KardSettings::selectedLanguage()));
+    ui_general.kcfg_sound->setChecked(KardSettings::sound());
+    dialog->addPage(generalSettingsDlg, i18n("General"), "wizard");
+    QWidget *themeSettingsDlg = new QWidget;
+    ui_theme.setupUi(themeSettingsDlg);
+    dialog->addPage(themeSettingsDlg, i18n("Theme"), "colors");
     connect(dialog, SIGNAL(settingsChanged()), this, SLOT(slotUpdateSettings()));
     dialog->show();
 }
