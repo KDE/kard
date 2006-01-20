@@ -53,7 +53,7 @@ KardView::KardView(QWidget *parent)
   a[20]=a[21]=Qt::darkGreen;
   a[22]=a[23]=Qt::darkGray;
 
-  boardLayout = new QGridLayout( this, 1, 1, 0, 0, "boardLayout");
+  //boardLayout = new QGridLayout( this, 1, 1, 0, 0, "boardLayout");
  }
 
 KardView::~KardView()
@@ -108,8 +108,9 @@ void KardView::game()
 	}
 	setAutoFillBackground(true);
 	//create the GUI
-	grid = new QGridLayout(0, 0, 0, 3, 0 );
+	grid = new QGridLayout;
 	grid->setSpacing(3);
+	grid->setMargin(2);
 	//create the cards
 	for (int i=0; i<n; i++)
 	{
@@ -119,10 +120,11 @@ void KardView::game()
 			grid->addWidget( k[i][j], i, j );
 			m_listButtons.append(k[i][j]);
 			k[i][j]->m_kardW->setAutoFillBackground(true);
-			k[i][j]->gris->setAutoFillBackground(true);
+			k[i][j]->m_gray->setAutoFillBackground(true);
+			k[i][j]->show();
 		}
 	}
-	boardLayout->addLayout( grid, 0, 0);
+	setLayout(grid);
 	setBackgroundColor(Qt::darkGray);//will be the borders color
 	
 	//choose the cards colors in random

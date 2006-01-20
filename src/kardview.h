@@ -123,7 +123,6 @@ private slots:
 
 protected:
 	QGridLayout* grid;
-	QGridLayout* boardLayout;
 
 protected:
 	virtual void resizeEvent( QResizeEvent * e );

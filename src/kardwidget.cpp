@@ -19,79 +19,62 @@
 #include <QResizeEvent>
 #include <QLabel>
 
-//#include "kard.h"
-
 KardWidget::KardWidget(QWidget *parent, const char *name)
   : QLabel(parent, name)
 {
 	//the kard widget inherits of QLabel and is a child of QWidget
 	//the m_kardW wiget is a QLabel on top of the kard widget
-	//the gris widget is a QLabel that will recover the m_kardW widget
+	//the m_gray widget is a QLabel that will recover the m_kardW widget i.e. m_gray = back of the card
 	setBackgroundColor(Qt::black); //the color for the ?
 	m_kardW = new QLabel(this);
 	m_kardW->setGeometry(0, 0, width(), height());
-	gris=new QLabel(m_kardW);
-	gris->setText("?");
-	gris->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+	m_gray=new QLabel(m_kardW);
+	m_gray->setText("?");
+	m_gray->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	//TODO change the ? size depending of the card size
-	gris->setFont(QFont(KGlobalSettings::generalFont().family(), 40, QFont::Bold));
-	gris->setToolTip( i18n( "Click to see what is on the back of the card" ) );
-	gris->setWhatsThis( i18n( "Click on two cards to find out what is on the back of the card and try matching a pair" ) );
+	m_gray->setFont(QFont(KGlobalSettings::generalFont().family(), 40, QFont::Bold));
+	m_gray->setToolTip( i18n( "Click to see what is on the back of the card" ) );
+	m_gray->setWhatsThis( i18n( "Click on two cards to find out what is on the back of the card and try matching a pair" ) );
 	QPalette palette1;
 	palette1.setColor(QPalette::Active, static_cast<QPalette::ColorRole>(10), QColor(Qt::lightGray));
-	gris->setPalette(palette1);
+	m_gray->setPalette(palette1);
 	m_kardW->setWhatsThis(i18n( "Click on another kard and try matching a pair" ) );
 }
 
 KardWidget::~KardWidget()
 {
-	delete gris;
+	delete m_gray;
 	delete m_kardW;
 }
 
-/**
-Implement a clicked() signal for the KardWidget class
-i.e. when mouse press kard then clicked() event
-*/
 void KardWidget::mousePressEvent(QMouseEvent * )
 {
 	// emit clicked() only if card not already clicked
-	if (gris->isVisible()==true)
+	if (m_gray->isVisible()==true)
 		emit clicked();
 	else
 		emit illegal(); //is it compulsory?
 }
 
-/**
-hide the gray part of the card
-*/
-void KardWidget::slotHide()
-{
-	if (gris->isVisible()==true)
-		gris->hide();
-	m_kardW->show();
-}
-
-/**
-the gray card should cover entirely the colored one
-*/
 void KardWidget::resizeEvent( QResizeEvent * )
 {
 	m_kardW->setGeometry(0, 0, width(), height());
-	gris->setGeometry(0, 0, m_kardW->width(), m_kardW->height());
+	m_gray->setGeometry(0, 0, m_kardW->width(), m_kardW->height());
 }
 
-/**
-show the gray card again
-*/
+
+void KardWidget::slotHide()
+{
+	if (m_gray->isVisible()==true)
+		m_gray->hide();
+	m_kardW->show();
+}
+
 void KardWidget::slotShow()
 {
-	gris->show();
+	m_gray->show();
 }
 
-/**
-card is matched -> hide it
-*/
 void KardWidget::slotDisappear()
 {
 	m_kardW->hide();
