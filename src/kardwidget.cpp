@@ -27,7 +27,7 @@ KardWidget::KardWidget(QWidget *parent, const char *name)
 	//the kard widget inherits of QLabel and is a child of QWidget
 	//the m_kardW wiget is a QLabel on top of the kard widget
 	//the gris widget is a QLabel that will recover the m_kardW widget
-	setBackgroundColor(Qt::white);//the color that will stay after the kard disappeared
+	setBackgroundColor(Qt::black); //the color for the ?
 	m_kardW = new QLabel(this);
 	m_kardW->setGeometry(0, 0, width(), height());
 	gris=new QLabel(m_kardW);
@@ -95,6 +95,8 @@ card is matched -> hide it
 void KardWidget::slotDisappear()
 {
 	m_kardW->hide();
+	setAutoFillBackground(true);
+	setBackgroundColor(Qt::white);
 }
 
 #include "kardwidget.moc"
