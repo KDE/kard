@@ -123,7 +123,7 @@ void Kard::optionsPreferences()
     QWidget *themeSettingsDlg = new QWidget;
     ui_theme.setupUi(themeSettingsDlg);
     dialog->addPage(themeSettingsDlg, i18n("Theme"), "colors");
-    connect(dialog, SIGNAL(settingsChanged()), this, SLOT(slotUpdateSettings()));
+    connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(slotUpdateSettings(const QString &)));
     dialog->show();
 }
 
@@ -155,7 +155,7 @@ void Kard::readConfig()
     m_soundAction->setChecked(KardSettings::sound());
 }
 
-void Kard::slotUpdateSettings()
+void Kard::slotUpdateSettings(const QString &)
 {
     slotUpdateTimer();
     slotUpdateTheme();

@@ -86,7 +86,7 @@ private slots:
      */
     void slotUpdateFullScreen( bool );
     ///After Configure Kard dialog is run and some settings changed
-    void slotUpdateSettings();
+    void slotUpdateSettings(const QString &);
     /// After timer is changed in Configure Kard dialog, set correct time
     void slotUpdateTimer();
     ///After theme is changed in Configure Kard dialog
