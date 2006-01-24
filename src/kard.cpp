@@ -16,6 +16,7 @@
  */
 
 //Qt headers
+#include <QButtonGroup>
 #include <QToolTip>
 #include <QWhatsThis>
 //KDE headers
@@ -116,6 +117,11 @@ void Kard::optionsPreferences()
     dialog->setModal(true); //makes it modal even if it's not the default
     QWidget *generalSettingsDlg = new QWidget;
     ui_general.setupUi(generalSettingsDlg);
+    QButtonGroup *groupTimer = new QButtonGroup;
+    groupTimer->addButton(ui_general.slow, 0);
+    groupTimer->addButton(ui_general.medium, 1);
+    groupTimer->addButton(ui_general.quick, 2);
+    connect(groupTimer, SIGNAL(buttonClicked(int)), this, SLOT(slotUpdateTimer(int)));
     ui_general.kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
     ui_general.kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(KardSettings::selectedLanguage()));
     ui_general.kcfg_sound->setChecked(KardSettings::sound());
@@ -149,15 +155,15 @@ void Kard::readConfig()
     //read theme from kconfigskeleton, "colors" is default
     slotUpdateTheme();
     //read timer from config, set default to 1 second
-    slotUpdateTimer();
+    slotUpdateTimer(KardSettings::time());
     setLanguage();
     changeLanguage();
     m_soundAction->setChecked(KardSettings::sound());
-}
+} 
 
 void Kard::slotUpdateSettings(const QString &)
 {
-    slotUpdateTimer();
+    //TODO slotUpdateTimer();
     slotUpdateTheme();
     if (m_view->noc != (KardSettings::numCards()+1)*4) {
         m_view->noc = (KardSettings::numCards()+1)*4;
@@ -219,18 +225,18 @@ void Kard::slotUpdateTheme()
     changeStatusbar(i18n("Theme: %1").arg(m_view->theme), IDS_THEME);
 }
 
-void Kard::slotUpdateTimer()
+void Kard::slotUpdateTimer(int id)
 {
     //read timer from config, set default to 1 second
-    switch (KardSettings::timer())  {
-        case KardSettings::EnumTimer::quick:
-            m_view->myTime = 500;
+    switch (id)  {
+        case 0:
+            m_view->myTime = 2000;
             break;
-        case KardSettings::EnumTimer::medium:
+        case 1:
             m_view->myTime = 1000;
             break;
-        case KardSettings::EnumTimer::slow:
-            m_view->myTime = 2000;
+        case 2:
+            m_view->myTime = 500;
             break;
     }
     double m_time = double(m_view->myTime)/double(1000);
@@ -239,6 +245,8 @@ void Kard::slotUpdateTimer()
         changeStatusbar(i18n("fraction of whole second","Timer: %1 seconds").arg(m_time), IDS_TIME);
     else
         changeStatusbar(i18n("Timer: 1 second","Timer: %n seconds", (int)m_time), IDS_TIME);
+   KardSettings::setTime(id);
+   KardSettings::writeConfig(); 
 }
 
 void Kard::setNumber(int index)

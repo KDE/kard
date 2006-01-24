@@ -17,7 +17,7 @@
       </choices>
       <default>colors</default>
     </entry>
-     <entry name="Timer" type="Enum">
+     <entry name="Time" type="Enum">
       <label>Select the speed you want the cards to be displayed</label>
       <choices>
         <choice name="slow"/>

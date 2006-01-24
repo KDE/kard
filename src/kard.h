@@ -30,7 +30,7 @@
 class KComboBox;
 class KSelectAction;
 class KToggleAction;
-
+class QButtonGroup;
 class KardView;
 
 const int IDS_NUMBER	= 100;
@@ -88,7 +88,7 @@ private slots:
     ///After Configure Kard dialog is run and some settings changed
     void slotUpdateSettings(const QString &);
     /// After timer is changed in Configure Kard dialog, set correct time
-    void slotUpdateTimer();
+    void slotUpdateTimer(int);
     ///After theme is changed in Configure Kard dialog
     void slotUpdateTheme();
     ///When theme is changed in Combobox
@@ -125,6 +125,7 @@ protected:
     ///The combobox where the theme is chosen
     KComboBox *m_themeCombo;
 
+    QButtonGroup *groupTimer;
 };
 
 #endif // KARD_H
