@@ -398,10 +398,10 @@ void KardView::loadNames()
     a[4]=yellow; text[5]="yellow"; opp_numarr[4] = 4; opp_numarr[5] = 4;//a[5]= i18n("yellow");
     a[6]=green; text[7]="green"; opp_numarr[6] = 6; opp_numarr[7] = 6;//a[7]= i18n("green");
     a[8]=blue;  text[9]="blue"; opp_numarr[8] = 8; opp_numarr[9] = 8;//a[9]= i18n("blue");
-    a[10]= QColor(237, 112, 197); text[11]="pink"; opp_numarr[10] = 10; opp_numarr[11] = 10;//a[11]= i18n("pink");
+    a[10]= QColor(255, 105, 180); text[11]="pink"; opp_numarr[10] = 10; opp_numarr[11] = 10;//a[11]= i18n("pink");
     a[12]=white; text[13]="white"; opp_numarr[12] = 12; opp_numarr[13] = 12;//a[13]= i18n("white");
-    a[14]= QColor(187, 121, 237); text[15]="purple"; opp_numarr[14] = 14; opp_numarr[15] = 14;//a[15]=i18n("purple");
-    a[16]=QColor(237, 134, 71); text[17]="orange"; opp_numarr[16] = 16; opp_numarr[17] = 16;//a[17]=i18n("orange");
+    a[14]= QColor(160, 32, 240); text[15]="purple"; opp_numarr[14] = 14; opp_numarr[15] = 14;//a[15]=i18n("purple");
+    a[16]=QColor(255, 165, 0); text[17]="orange"; opp_numarr[16] = 16; opp_numarr[17] = 16;//a[17]=i18n("orange");
     a[18]=darkBlue; text[19]="dark blue"; opp_numarr[18] = 18; opp_numarr[19] = 18;//a[19]=i18n("dark blue");
     a[20]=darkGreen; text[21]="dark green"; opp_numarr[20] = 20; opp_numarr[21] = 20;//a[21]=i18n("dark green");
     a[22]=darkGray; text[23]="gray"; opp_numarr[22] = 22; opp_numarr[23] = 22;//a[23]=i18n("gray");
