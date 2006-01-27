@@ -1,0 +1,168 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>Theme</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>Theme</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>191</width>
+            <height>268</height>
+        </rect>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <spacer row="1" column="0">
+            <property name="name">
+                <cstring>spacer1</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Minimum</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>40</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QButtonGroup" row="0" column="0">
+            <property name="name">
+                <cstring>kcfg_Theme</cstring>
+            </property>
+            <property name="title">
+                <string>Choose the Cards' Theme</string>
+            </property>
+            <property name="flat">
+                <bool>false</bool>
+            </property>
+            <property name="exclusive">
+                <bool>true</bool>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>This dialog allows you to choose the theme that will be displayed when you return a card. In colors, you will have to match cards that are the same color; the house theme consists of pictures of objects you can find in a house; opposites are geometrical figures that match with opposite colors.</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>colors</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Colors</string>
+                    </property>
+                    <property name="checked">
+                        <bool>true</bool>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>0</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Match the same color</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="6" column="0">
+                    <property name="name">
+                        <cstring>food</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Food</string>
+                    </property>
+                    <property name="checked">
+                        <bool>false</bool>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>6</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Match the same picture of a food </string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="5" column="0">
+                    <property name="name">
+                        <cstring>animals</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Animals</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>5</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Match the same picture of an animal</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="3" column="0">
+                    <property name="name">
+                        <cstring>opposites</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Opposites</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>3</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Match opposite geometrical forms</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>house</cstring>
+                    </property>
+                    <property name="text">
+                        <string>House</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>2</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Match the same picture of a house object</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>radioButton7</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Colors &amp;&amp; Names</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>1</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Match a color with its name</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="4" column="0">
+                    <property name="name">
+                        <cstring>syllables</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Syllables</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>4</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Match the same syllables</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
