@@ -321,7 +321,7 @@ void Kard::setLanguage()
 void Kard::changeLanguage()
 {
     boardChanged = true;
-    kdDebug() <<"change lang " << m_languages[KardSettings::languageCombobox()] << endl;
+    kDebug() <<"change lang " << m_languages[KardSettings::languageCombobox()] << endl;
     KardSettings::setSelectedLanguage(m_languages[KardSettings::languageCombobox()]);
     KardSettings::writeConfig();
     if (m_view->theme=="syllables")

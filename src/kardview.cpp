@@ -33,8 +33,6 @@
 #include "kardview.h"
 #include "kardsettings.h"
 #include "kard.h"
-//standard C++ headers
-#include <stdlib.h>
 
 KardView::KardView(QWidget *parent)
     : QWidget(parent)
@@ -279,7 +277,7 @@ void KardView::slotAll()
 	"You finished the game in %1 tries.\n"
 	"The best you could have done is %2 tries.\n"
 	"Do you want to play again?").arg(tries).arg(bestNum);
-	kdDebug() <<"Tries: " << tries << endl;
+	kDebug() <<"Tries: " << tries << endl;
 	switch(KMessageBox::questionYesNo( this, mString,i18n("Game is Finished") ))
 	{
 	case 3: // yes
@@ -363,7 +361,7 @@ void KardView::loadPixmaps()
             QFile f( *it);
             QString mString = f.name();
             picsList+=mString;
-            kdDebug() << mString  <<endl;
+            kDebug() << mString  <<endl;
             px[i].load(locate("data",mString));
             if (currentDir == "theme2") {
                 if (i%2 ==0) 
@@ -383,7 +381,7 @@ void KardView::loadPixmaps()
 
 void KardView::loadSyllables()
 {
-  	kdDebug() << "Language: " << KardSettings::selectedLanguage() << endl;
+  	kDebug() << "Language: " << KardSettings::selectedLanguage() << endl;
   	QString myString=QString("kard/data/%1/syllables.txt").arg(KardSettings::selectedLanguage());
 	QFile myFile;
 	myFile.setName(locate("data", myString));

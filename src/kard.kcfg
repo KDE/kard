@@ -60,7 +60,7 @@
 		m_languages.remove(m_languages.find(".."));
 	}
 	m_languages.sort();
-	kdDebug() &lt;&lt; m_languages &lt;&lt; endl;
+	kDebug() &lt;&lt; m_languages &lt;&lt; endl;
       </code>
       <default code="true">
       (m_languages.findIndex(userLanguage) &lt; 0) ? 0 : m_languages.findIndex(userLanguage)
