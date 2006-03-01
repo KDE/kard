@@ -29,6 +29,7 @@
 #include <kmenubar.h>
 #include <kstatusbar.h>
 #include <kaudioplayer.h>
+#include <ktoolbar.h>
 //Project headers
 #include "kard.h"
 #include "kardview.h"
