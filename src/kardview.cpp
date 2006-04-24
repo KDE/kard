@@ -63,7 +63,7 @@ void KardView::game()
 	co = 0;
 	count = 0;
 	tries = 0;
-	emit signalChangeStatusbar(i18n("Tries: %1").arg(tries), IDS_TRY);
+	emit signalChangeStatusbar(i18n("Tries: %1", tries), IDS_TRY);
 
 	if (theme == "house" || theme =="animals" || theme =="food" || theme == "opposites")
 		loadPixmaps();

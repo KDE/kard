@@ -151,7 +151,7 @@ void Kard::readConfig()
     //read number of cards from config, set default to 16
     m_view->noc = (KardSettings::numCards()+1)*4 ;
     m_numAction->setCurrentItem(KardSettings::numCards());
-    changeStatusbar(i18n("Number of cards: %1").arg(m_view->noc), IDS_NUMBER);
+    changeStatusbar(i18n("Number of cards: %1", m_view->noc), IDS_NUMBER);
     //read theme from kconfigskeleton, "colors" is default
     slotUpdateTheme();
     //read timer from config, set default to 1 second
@@ -222,7 +222,7 @@ void Kard::slotUpdateTheme()
             break;
     }
     
-    changeStatusbar(i18n("Theme: %1").arg(m_view->theme), IDS_THEME);
+    changeStatusbar(i18n("Theme: %1", m_view->theme), IDS_THEME);
 }
 
 void Kard::slotUpdateTimer(int id)
@@ -253,7 +253,7 @@ void Kard::setNumber(int index)
 {
     m_view->noc=(index+1)*4;
     saveSettings();
-    changeStatusbar(i18n("Number of cards: %1").arg(m_view->noc), IDS_NUMBER);
+    changeStatusbar(i18n("Number of cards: %1", m_view->noc), IDS_NUMBER);
     m_view->newBoard();
 }
 
@@ -327,7 +327,7 @@ void Kard::changeLanguage()
     KardSettings::setSelectedLanguage(m_languages[KardSettings::languageCombobox()]);
     KardSettings::writeConfig();
     if (m_view->theme=="syllables")
-        changeStatusbar(i18n("Language: %1").arg(m_sortedNames[KardSettings::languageCombobox()]), IDS_LANG);
+        changeStatusbar(i18n("Language: %1", m_sortedNames[KardSettings::languageCombobox()]), IDS_LANG);
     else
         changeStatusbar("", IDS_LANG);
 }
