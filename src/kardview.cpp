@@ -343,7 +343,7 @@ void KardView::resizeEvent( QResizeEvent * )
 	{
     	      for (int j=0; j<m; j++)
 		{
-			k[i][j]->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, 0, 0, k[i][j]->sizePolicy().hasHeightForWidth() ) );
+			k[i][j]->setSizePolicy( QSizePolicy::Preferred, QSizePolicy::Preferred );
 		}
 	}
 }

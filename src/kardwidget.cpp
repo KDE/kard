@@ -19,8 +19,8 @@
 #include <QResizeEvent>
 #include <QLabel>
 
-KardWidget::KardWidget(QWidget *parent, const char *name)
-  : QLabel(parent, name)
+KardWidget::KardWidget(QWidget *parent, const char *)
+  : QLabel(parent)
 {
 	//the kard widget inherits of QLabel and is a child of QWidget
 	//the m_kardW wiget is a QLabel on top of the kard widget
