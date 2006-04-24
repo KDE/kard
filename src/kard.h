@@ -106,6 +106,7 @@ private:
     KToggleAction* m_soundAction;
 
     KSelectAction *m_numAction;
+    KSelectAction *m_themeAction;
     ///Define the actions for the MenuBar and Toolbar
     void setupActions();
     void setLanguage();

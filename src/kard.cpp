@@ -53,14 +53,6 @@ Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
     setGeometry(0, 0, 600, 500);
     resize( QSize(600, 500).expandedTo(minimumSizeHint()) );
 
-    //adding themes combobox
-    QStringList themesList;
-    themesList += i18n("colors");
-    themesList += i18n("house");
-    themesList += i18n("opposites");
-    themesList +=i18n("syllables");
-    themesList +=i18n("animals");
-    themesList +=i18n("food");
    // toolBar()->insertSeparator(-1, 1); //id=1 for separator
    /* toolBar()->insertCombo(themesList, 4, false, SIGNAL(activated(int )), this, SLOT(slotSetTheme(int )));
     m_themeCombo = toolBar()->getCombo(4);
@@ -92,6 +84,7 @@ void Kard::setupActions()
     m_soundAction = new KToggleAction(i18n("Soun&ds"), 0, this,
                                 SLOT(slotToggleSound()), actionCollection(), "sound");
 
+    //adding choice of number of cards action
     m_numAction = new KSelectAction(i18n("View"), actionCollection(), "num");
    connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
     QStringList nums;
@@ -104,6 +97,20 @@ void Kard::setupActions()
     m_numAction->setItems(nums);
     m_numAction ->setToolTip( i18n( "Choose the number of cards" ) );
     m_numAction ->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );    
+
+    //adding theme action
+    m_themeAction = new KSelectAction(i18n("Themes"), actionCollection(), "themes");
+   connect(m_themeAction , SIGNAL(triggered(int)), this, SLOT(slotSetTheme(int )));
+    QStringList themesList;
+    themesList += i18n("colors");
+    themesList += i18n("house");
+    themesList += i18n("opposites");
+    themesList +=i18n("syllables");
+    themesList +=i18n("animals");
+    themesList +=i18n("food");
+    m_themeAction->setItems(themesList);
+    m_themeAction->setToolTip( i18n( "Choose the theme for the cards" ) );
+    m_themeAction->setWhatsThis(  i18n( "You can choose here the theme for the backs of the cards" ) );
 
     setupGUI();
 }

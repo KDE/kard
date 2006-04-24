@@ -5,6 +5,7 @@
 		<Action name="file_quit"/>
 	</Menu>
 	<Action name="num"/>
+	<Action name="themes"/>
         <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
 	        <Merge name="StandardToolBarMenuHandler" />
 		<Action name="options_show_statusbar"/>
@@ -19,8 +20,11 @@
 		<Action name="options_configure"/>
 	</Menu>
 </MenuBar>
+
 <ToolBar name="mainToolBar" noMerge="1"><Text>Main</Text>
 	<Action name="num"/>
+	<Action name="themes"/>
+	<Separator/>
 	<Action name="file_quit"/>
     <Separator/>
     <Action name="fullscreen"/>
