@@ -141,6 +141,7 @@ void KardView::game()
 		}
 	}
 	int ni=0;
+	QPalette pal;
 	for (int i=0; i<n; i++)
 	{
 		for (int j=0; j<m; j++)
@@ -149,7 +150,8 @@ void KardView::game()
 
 			switch (KardSettings::theme()) {
 				case KardSettings::EnumTheme::colors:
-					k[i][j]->setPalette( QPalette( QColor(a[shuffle[i][j]]) ) );
+					pal.setBrush(QPalette::Window, ( QColor(a[shuffle[i][j]]) ));// QPalette( QColor(a[shuffle[i][j]]) ) );
+					k[i][j]->m_kardW->setPalette(pal);
 					break;
 				case KardSettings::EnumTheme::house:
 					k[i][j]->m_kardW->setPixmap(px[shuffle[i][j]]);
@@ -190,7 +192,7 @@ void KardView::slotTimer()
 
 	// store the background color of the clicked card
 	if (theme == "colors")
-		color[co] = kardW[co]->m_kardW->backgroundColor();
+		color[co] = kardW[co]->m_kardW->palette().color(QPalette::Active, QPalette::Window);
 	if (theme == "syllables") 
 		mText[co] = kardW[co]->m_kardW->text();
 

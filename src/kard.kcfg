@@ -56,14 +56,14 @@
 	for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
 		QDir dir(*it);
 		m_languages += dir.entryList(QDir::Dirs, QDir::Name);
-		m_languages.remove(m_languages.find("."));
-		m_languages.remove(m_languages.find(".."));
+		m_languages.removeAll(".");
+		m_languages.removeAll("..");
 	}
 	m_languages.sort();
 	kDebug() &lt;&lt; m_languages &lt;&lt; endl;
       </code>
       <default code="true">
-      (m_languages.findIndex(userLanguage) &lt; 0) ? 0 : m_languages.findIndex(userLanguage)
+      (m_languages.indexOf(userLanguage) &lt; 0) ? 0 : m_languages.indexOf(userLanguage)
       </default>
       <min>0</min>
     </entry>

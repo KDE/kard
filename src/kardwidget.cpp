@@ -25,7 +25,7 @@ KardWidget::KardWidget(QWidget *parent, const char *name)
 	//the kard widget inherits of QLabel and is a child of QWidget
 	//the m_kardW wiget is a QLabel on top of the kard widget
 	//the m_gray widget is a QLabel that will recover the m_kardW widget i.e. m_gray = back of the card
-	setBackgroundColor(Qt::black); //the color for the ?
+	//setBackgroundColor(Qt::black); //the color for the ?
 	m_kardW = new QLabel(this);
 	m_kardW->setGeometry(0, 0, width(), height());
 	m_gray=new QLabel(m_kardW);
@@ -36,7 +36,9 @@ KardWidget::KardWidget(QWidget *parent, const char *name)
 	m_gray->setToolTip( i18n( "Click to see what is on the back of the card" ) );
 	m_gray->setWhatsThis( i18n( "Click on two cards to find out what is on the back of the card and try matching a pair" ) );
 	QPalette palette1;
-	palette1.setColor(QPalette::Active, static_cast<QPalette::ColorRole>(10), QColor(Qt::lightGray));
+	//palette1.setColor(QPalette::Active, static_cast<QPalette::ColorRole>(10), QColor(Qt::lightGray));
+	palette1.setBrush( QPalette::WindowText, Qt::black);
+	palette1.setBrush( QPalette::Window, Qt::lightGray);
 	m_gray->setPalette(palette1);
 	m_kardW->setWhatsThis(i18n( "Click on another kard and try matching a pair" ) );
 }
@@ -79,7 +81,9 @@ void KardWidget::slotDisappear()
 {
 	m_kardW->hide();
 	setAutoFillBackground(true);
-	setBackgroundColor(Qt::white);
+	QPalette pal;
+	pal.setBrush( QPalette::Window, Qt::white);
+	//setBackgroundColor(Qt::white);
 }
 
 #include "kardwidget.moc"
