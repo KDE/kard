@@ -25,7 +25,7 @@ kde4_add_kcfg_files(kard_SRCS kardsettings.kcfgc )
 
 kde4_add_executable(kard ${kard_SRCS})
 
-target_link_libraries(kard  ${KDE4_KDECORE_LIBS} )
+target_link_libraries(kard  ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS})
 
 install_targets(/bin kard )
 

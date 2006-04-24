@@ -53,16 +53,17 @@ Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
     setGeometry(0, 0, 600, 500);
     resize( QSize(600, 500).expandedTo(minimumSizeHint()) );
     // and a tool bar
-    toolBar()->insertSeparator(-1, 1); //id=1 for separator
-    toolBar()->insertCombo(i18n("4 Cards"), 2, false, SIGNAL(activated(int)), this, SLOT(setNumber(int)));
-    m_numCombo = toolBar()->getCombo(2);
-    m_numCombo->insertItem(i18n("8 Cards"), 1);
-    m_numCombo->insertItem(i18n("12 Cards"), 2);
-    m_numCombo->insertItem(i18n("16 Cards"), 3);
-    m_numCombo->insertItem(i18n("20 Cards"), 4);
-    m_numCombo->insertItem(i18n("24 Cards"), 5);
-    m_numCombo->setToolTip( i18n( "Choose the number of cards" ) );
-    m_numCombo->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );
+    toolBar()->addSeparator(); 
+    KSelectAction *m_numAction = new KSelectAction(i18n("4 Cards"), actionCollection(), "languages");
+   connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
+    toolBar()->addAction(m_numAction);
+    //m_numCombo->insertItem(i18n("8 Cards"), 1);
+    //m_numCombo->insertItem(i18n("12 Cards"), 2);
+    //m_numCombo->insertItem(i18n("16 Cards"), 3);
+    //m_numCombo->insertItem(i18n("20 Cards"), 4);
+    //m_numCombo->insertItem(i18n("24 Cards"), 5);
+    m_numAction ->setToolTip( i18n( "Choose the number of cards" ) );
+    m_numAction ->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );
     
     //adding themes combobox
     QStringList themesList;
@@ -72,11 +73,11 @@ Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
     themesList +=i18n("syllables");
     themesList +=i18n("animals");
     themesList +=i18n("food");
-    toolBar()->insertSeparator(-1, 1); //id=1 for separator
-    toolBar()->insertCombo(themesList, 4, false, SIGNAL(activated(int )), this, SLOT(slotSetTheme(int )));
+   // toolBar()->insertSeparator(-1, 1); //id=1 for separator
+   /* toolBar()->insertCombo(themesList, 4, false, SIGNAL(activated(int )), this, SLOT(slotSetTheme(int )));
     m_themeCombo = toolBar()->getCombo(4);
     m_themeCombo->setToolTip( i18n( "Choose the theme for the cards" ) );
-    m_themeCombo->setWhatsThis(  i18n( "You can choose here the theme for the backs of the cards" ) );
+    m_themeCombo->setWhatsThis(  i18n( "You can choose here the theme for the backs of the cards" ) );*/
     // tell the KMainWindow that this is indeed the main widget
     setCentralWidget(m_view);
     
@@ -241,9 +242,9 @@ void Kard::slotUpdateTimer(int id)
     double m_time = double(m_view->myTime)/double(1000);
     
     if (m_time<1)
-        changeStatusbar(i18n("fraction of whole second","Timer: %1 seconds").arg(m_time), IDS_TIME);
+        changeStatusbar(i18nc("fraction of whole second","Timer: %1 seconds", m_time), IDS_TIME);
     else
-        changeStatusbar(i18n("Timer: 1 second","Timer: %n seconds", (int)m_time), IDS_TIME);
+        changeStatusbar(i18np("Timer: 1 second","Timer: %n seconds", (int)m_time), IDS_TIME);
    KardSettings::setTime(id);
    KardSettings::writeConfig(); 
 }
