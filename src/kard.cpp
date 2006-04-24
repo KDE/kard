@@ -81,8 +81,8 @@ void Kard::setupActions()
     m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotUpdateFullScreen( bool )));
 
-    m_soundAction = new KToggleAction(i18n("Soun&ds"), 0, this,
-                                SLOT(slotToggleSound()), actionCollection(), "sound");
+    m_soundAction = new KToggleAction(i18n("Soun&ds"), actionCollection(), "sound");
+    connect(m_soundAction , SIGNAL(triggered()), this, SLOT(slotToggleSound()));
 
     //adding choice of number of cards action
     m_numAction = new KSelectAction(i18n("View"), actionCollection(), "num");
