@@ -54,7 +54,7 @@ Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
     resize( QSize(600, 500).expandedTo(minimumSizeHint()) );
     // and a tool bar
     toolBar()->addSeparator(); 
-    KSelectAction *m_numAction = new KSelectAction(i18n("4 Cards"), actionCollection(), "languages");
+    m_numAction = new KSelectAction(i18n("4 Cards"), actionCollection(), "languages");
    connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
     toolBar()->addAction(m_numAction);
     //m_numCombo->insertItem(i18n("8 Cards"), 1);
@@ -150,7 +150,7 @@ void Kard::readConfig()
     boardChanged = false;
     //read number of cards from config, set default to 16
     m_view->noc = (KardSettings::numCards()+1)*4 ;
-    m_numCombo->setCurrentItem(KardSettings::numCards());
+    m_numAction->setCurrentItem(KardSettings::numCards());
     changeStatusbar(i18n("Number of cards: %1").arg(m_view->noc), IDS_NUMBER);
     //read theme from kconfigskeleton, "colors" is default
     slotUpdateTheme();
@@ -167,7 +167,7 @@ void Kard::slotUpdateSettings(const QString &)
     slotUpdateTheme();
     if (m_view->noc != (KardSettings::numCards()+1)*4) {
         m_view->noc = (KardSettings::numCards()+1)*4;
-        m_numCombo->setCurrentItem(KardSettings::numCards());
+        m_numAction->setCurrentItem(KardSettings::numCards());
         boardChanged = true;
     }
     changeLanguage();
@@ -188,7 +188,7 @@ void Kard::slotSetTheme(int id)
 
 void Kard::slotUpdateTheme()
 {
-    m_themeCombo->setCurrentItem(KardSettings::theme());
+    //m_themeCombo->setCurrentItem(KardSettings::theme());
     switch (KardSettings::theme()) {
         case KardSettings::EnumTheme::colors:
             if (m_view->theme=="house" || m_view->theme=="opposites"|| m_view->theme=="syllables" || m_view->theme=="animals") 

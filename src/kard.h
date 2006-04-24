@@ -104,6 +104,8 @@ private:
     KAction* m_pFullScreen;
     /// Sound toggle action
     KToggleAction* m_soundAction;
+
+    KSelectAction *m_numAction;
     ///Define the actions for the MenuBar and Toolbar
     void setupActions();
     void setLanguage();
