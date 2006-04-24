@@ -4,6 +4,7 @@
 	<Menu name="file" noMerge="1"><text>&amp;File</text>
 		<Action name="file_quit"/>
 	</Menu>
+	<Action name="num"/>
         <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
 	        <Merge name="StandardToolBarMenuHandler" />
 		<Action name="options_show_statusbar"/>
@@ -19,6 +20,7 @@
 	</Menu>
 </MenuBar>
 <ToolBar name="mainToolBar" noMerge="1"><Text>Main</Text>
+	<Action name="num"/>
 	<Action name="file_quit"/>
     <Separator/>
     <Action name="fullscreen"/>

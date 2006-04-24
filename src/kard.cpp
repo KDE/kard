@@ -52,19 +52,7 @@ Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
     setupActions();
     setGeometry(0, 0, 600, 500);
     resize( QSize(600, 500).expandedTo(minimumSizeHint()) );
-    // and a tool bar
-    toolBar()->addSeparator(); 
-    m_numAction = new KSelectAction(i18n("4 Cards"), actionCollection(), "languages");
-   connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
-    toolBar()->addAction(m_numAction);
-    //m_numCombo->insertItem(i18n("8 Cards"), 1);
-    //m_numCombo->insertItem(i18n("12 Cards"), 2);
-    //m_numCombo->insertItem(i18n("16 Cards"), 3);
-    //m_numCombo->insertItem(i18n("20 Cards"), 4);
-    //m_numCombo->insertItem(i18n("24 Cards"), 5);
-    m_numAction ->setToolTip( i18n( "Choose the number of cards" ) );
-    m_numAction ->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );
-    
+
     //adding themes combobox
     QStringList themesList;
     themesList += i18n("colors");
@@ -103,7 +91,20 @@ void Kard::setupActions()
 
     m_soundAction = new KToggleAction(i18n("Soun&ds"), 0, this,
                                 SLOT(slotToggleSound()), actionCollection(), "sound");
-        
+
+    m_numAction = new KSelectAction(i18n("View"), actionCollection(), "num");
+   connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
+    QStringList nums;
+    nums+=i18n("4 Cards");
+    nums+=i18n("8 Cards");
+    nums+=i18n("12 Cards");
+    nums+=i18n("16 Cards");
+    nums+=i18n("20 Cards");
+    nums+=i18n("24 Cards");
+    m_numAction->setItems(nums);
+    m_numAction ->setToolTip( i18n( "Choose the number of cards" ) );
+    m_numAction ->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );    
+
     setupGUI();
 }
 
@@ -251,6 +252,7 @@ void Kard::slotUpdateTimer(int id)
 
 void Kard::setNumber(int index)
 {
+    kDebug() <<"change num index " << index << endl;
     m_view->noc=(index+1)*4;
     saveSettings();
     changeStatusbar(i18n("Number of cards: %1", m_view->noc), IDS_NUMBER);

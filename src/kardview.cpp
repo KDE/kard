@@ -123,7 +123,10 @@ void KardView::game()
 		}
 	}
 	setLayout(grid);
-	setBackgroundColor(Qt::darkGray);//will be the borders color
+	QPalette pal;
+	pal.setBrush( QPalette::Window, Qt::darkGray);
+	setPalette(pal);
+	//setBackgroundColor(Qt::darkGray);//will be the borders color
 	
 	//choose the cards colors in random
 	srand((unsigned int)time((time_t *)NULL));
@@ -141,7 +144,6 @@ void KardView::game()
 		}
 	}
 	int ni=0;
-	QPalette pal;
 	for (int i=0; i<n; i++)
 	{
 		for (int j=0; j<m; j++)
@@ -150,7 +152,7 @@ void KardView::game()
 
 			switch (KardSettings::theme()) {
 				case KardSettings::EnumTheme::colors:
-					pal.setBrush(QPalette::Window, ( QColor(a[shuffle[i][j]]) ));// QPalette( QColor(a[shuffle[i][j]]) ) );
+					pal.setColor(QPalette::Active, QPalette::Window, QColor(a[shuffle[i][j]]));// QPalette( QColor(a[shuffle[i][j]]) ) );
 					k[i][j]->m_kardW->setPalette(pal);
 					break;
 				case KardSettings::EnumTheme::house:
@@ -220,23 +222,22 @@ void KardView::slotTimer()
 			}
 		}
 	}
-
+       kdDebug() << "--- co " << co << endl;
 	co++;
+        kdDebug() << "--- co " << co << endl;
 	if (co==2) //when 2 cards are clicked
 	{
 		slotDisconnect(); //so that the user cannot click on another card
-		QTimer *timer = new QTimer(this); //leave the cards on for 0.5, 1 or 2 seconds
-		connect( timer, SIGNAL(timeout()),
-		this, SLOT(slotMatch()) );
-		timer->start( myTime );
+		QTimer::singleShot(myTime, this, SLOT(slotMatch()));
 	}
  }
 
 void KardView::slotMatch()
 {
+	kdDebug() << "in slot match" << endl;
 	tries++;
 	
-	emit signalChangeStatusbar(i18n("Tries: %1").arg(tries), IDS_TRY);
+	emit signalChangeStatusbar(i18n("Tries: %1", tries), IDS_TRY);
 	
 	co=0;
 
@@ -312,6 +313,7 @@ void KardView::newBoard()
 
 void KardView::slotConnect()
 {
+	kdDebug() << "in slot connect" << endl;
 	for (int i=0; i<n; i++)
 	{
 		for (int j=0; j<m; j++)
@@ -324,6 +326,7 @@ void KardView::slotConnect()
 
 void KardView::slotDisconnect()
 {
+	kdDebug() << "in slot disconnect" << endl;
 	for (int i=0; i<n; i++)
 	{
 		for (int j=0; j<m; j++)

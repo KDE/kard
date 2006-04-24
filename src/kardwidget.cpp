@@ -83,6 +83,7 @@ void KardWidget::slotDisappear()
 	setAutoFillBackground(true);
 	QPalette pal;
 	pal.setBrush( QPalette::Window, Qt::white);
+	setPalette(pal);
 	//setBackgroundColor(Qt::white);
 }
 
