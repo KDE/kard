@@ -122,8 +122,8 @@ void Kard::optionsPreferences()
     groupTimer->addButton(ui_general.medium, 1);
     groupTimer->addButton(ui_general.quick, 2);
     connect(groupTimer, SIGNAL(buttonClicked(int)), this, SLOT(slotUpdateTimer(int)));
-    ui_general.kcfg_LanguageCombobox->insertStringList(m_sortedNames, 0);
-    ui_general.kcfg_LanguageCombobox->setCurrentItem(m_languages.findIndex(KardSettings::selectedLanguage()));
+    ui_general.kcfg_LanguageCombobox->insertItems(0, m_sortedNames);
+    ui_general.kcfg_LanguageCombobox->setCurrentIndex(m_languages.indexOf(KardSettings::selectedLanguage()));
     ui_general.kcfg_sound->setChecked(KardSettings::sound());
     dialog->addPage(generalSettingsDlg, i18n("General"), "wizard");
     QWidget *themeSettingsDlg = new QWidget;
@@ -290,18 +290,19 @@ void Kard::setLanguage()
     for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
         QDir dir(*it);
         m_languages += dir.entryList(QDir::Dirs, QDir::Name);
-        m_languages.remove(m_languages.find("."));
-        m_languages.remove(m_languages.find(".."));
+        m_languages.removeAll(".");
+        m_languages.removeAll("..");
     }
     m_languages.sort();
     if (m_languages.isEmpty()) 
         return;
     //find duplicated entries in KDEDIR and KDEHOME
+    //TODO check that code, seems fishy
     for (int i=0;  i<m_languages.count(); i++) {
         if (m_languages.count(m_languages[i])>1)
-            m_languages.remove(m_languages[i]);
+            m_languages.removeAt(i);
     }
-            //write the present languages in config so they cannot be downloaded
+    //write the present languages in config so they cannot be downloaded
     KConfig *config=kapp->sessionConfig();
     config->setGroup("KNewStuffStatus");
     for (int i=0;  i<m_languages.count(); i++) {

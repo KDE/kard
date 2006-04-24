@@ -226,7 +226,7 @@ void KardView::slotTimer()
 		QTimer *timer = new QTimer(this); //leave the cards on for 0.5, 1 or 2 seconds
 		connect( timer, SIGNAL(timeout()),
 		this, SLOT(slotMatch()) );
-		timer->start( myTime, true );
+		timer->start( myTime );
 	}
  }
 
@@ -276,7 +276,7 @@ void KardView::slotAll()
 	QString mString = i18n("Congratulations!\n"
 	"You finished the game in %1 tries.\n"
 	"The best you could have done is %2 tries.\n"
-	"Do you want to play again?").arg(tries).arg(bestNum);
+	"Do you want to play again?",  tries, bestNum);
 	kDebug() <<"Tries: " << tries << endl;
 	switch(KMessageBox::questionYesNo( this, mString,i18n("Game is Finished") ))
 	{
@@ -359,7 +359,7 @@ void KardView::loadPixmaps()
     if (!mfiles.isEmpty()) {
         for (QStringList::Iterator it = mfiles.begin(); it != mfiles.end(); ++it ) {
             QFile f( *it);
-            QString mString = f.name();
+            QString mString = f.fileName();
             picsList+=mString;
             kDebug() << mString  <<endl;
             px[i].load(locate("data",mString));
@@ -384,12 +384,12 @@ void KardView::loadSyllables()
   	kDebug() << "Language: " << KardSettings::selectedLanguage() << endl;
   	QString myString=QString("kard/data/%1/syllables.txt").arg(KardSettings::selectedLanguage());
 	QFile myFile;
-	myFile.setName(locate("data", myString));
-	QFile openFileStream(myFile.name());
+	myFile.setFileName(locate("data", myString));
+	QFile openFileStream(myFile.fileName());
 	openFileStream.open(QIODevice::ReadOnly);
 	QTextStream readFileStr(&openFileStream);
 	//allData contains all the words from the file
-	QStringList allData = QStringList::split("\n", readFileStr.read(), true);
+	QStringList allData = readFileStr.readAll().split("\n");
 	openFileStream.close();
 	//get text[0] to text[23] from random from the file 
 	//with 2 consecutives the same
@@ -398,7 +398,7 @@ void KardView::loadSyllables()
 	{
 		int rand = random.getLong(allData.count());
 		text[i]=text[i+1] = allData[rand];
-		allData.remove(allData.at(rand));//remove the chosen syllable from the list
+		allData.removeAt(rand);//remove the chosen syllable from the list
 		i=i+2;
 	}
 }
