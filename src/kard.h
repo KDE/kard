@@ -24,8 +24,8 @@
 
 #include <kmainwindow.h>
 
-#include "generalui.h"
-#include "themeui.h"
+#include "ui_generalui.h"
+#include "ui_themeui.h"
 
 class KComboBox;
 class KSelectAction;
