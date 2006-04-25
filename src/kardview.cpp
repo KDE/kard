@@ -280,7 +280,6 @@ void KardView::slotAll()
 	"You finished the game in %1 tries.\n"
 	"The best you could have done is %2 tries.\n"
 	"Do you want to play again?",  tries, bestNum);
-	kDebug() <<"Tries: " << tries << endl;
 	switch(KMessageBox::questionYesNo( this, mString,i18n("Game is Finished") ))
 	{
 	case 3: // yes
