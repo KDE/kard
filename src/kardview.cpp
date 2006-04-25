@@ -222,9 +222,9 @@ void KardView::slotTimer()
 			}
 		}
 	}
-       kdDebug() << "--- co " << co << endl;
+       kDebug() << "--- co " << co << endl;
 	co++;
-        kdDebug() << "--- co " << co << endl;
+        kDebug() << "--- co " << co << endl;
 	if (co==2) //when 2 cards are clicked
 	{
 		slotDisconnect(); //so that the user cannot click on another card
@@ -234,7 +234,7 @@ void KardView::slotTimer()
 
 void KardView::slotMatch()
 {
-	kdDebug() << "in slot match" << endl;
+	kDebug() << "in slot match" << endl;
 	tries++;
 	
 	emit signalChangeStatusbar(i18n("Tries: %1", tries), IDS_TRY);
@@ -313,7 +313,7 @@ void KardView::newBoard()
 
 void KardView::slotConnect()
 {
-	kdDebug() << "in slot connect" << endl;
+	kDebug() << "in slot connect" << endl;
 	for (int i=0; i<n; i++)
 	{
 		for (int j=0; j<m; j++)
@@ -326,7 +326,7 @@ void KardView::slotConnect()
 
 void KardView::slotDisconnect()
 {
-	kdDebug() << "in slot disconnect" << endl;
+	kDebug() << "in slot disconnect" << endl;
 	for (int i=0; i<n; i++)
 	{
 		for (int j=0; j<m; j++)
