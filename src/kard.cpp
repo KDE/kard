@@ -21,6 +21,10 @@
 #include <QWhatsThis>
 //KDE headers
 #include <kaction.h>
+#include <kselectaction.h>
+#include <ktoggleaction.h>
+#include <kstdaction.h>
+#include <ktogglefullscreenaction.h>
 #include <kapplication.h>
 #include <kcombobox.h>
 #include <kconfigdialog.h>
@@ -28,16 +32,20 @@
 #include <klocale.h>
 #include <kmenubar.h>
 #include <kstatusbar.h>
-#include <kaudioplayer.h>
 #include <ktoolbar.h>
+#include <phonon/simpleplayer.h>
+#include <kurl.h>
 //Project headers
 #include "kard.h"
 #include "kardview.h"
 // Settings
 #include "kardsettings.h"
 
+Phonon::SimplePlayer *Kard::mplayer = 0L;
+
 Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
 {
+	Kard::mplayer = new Phonon::SimplePlayer(this);
     // Create a status bar
     statusBar( )->insertItem("   ",IDS_NUMBER, 0);
     statusBar( )->insertItem("   ", 101, 0);
@@ -351,7 +359,7 @@ void Kard::slotToggleSound()
 void Kard::playSound(const QString &soundname)
 {
     if (KardSettings::sound())
-    	KAudioPlayer::play(locate("data", QString("kard/sounds/game/")+soundname));
+		mplayer->play(KUrl(locate("data", QString("kard/sounds/game/")+soundname)));
 }
 
 #include "kard.moc"

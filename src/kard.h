@@ -33,6 +33,11 @@ class KToggleAction;
 class QButtonGroup;
 class KardView;
 
+namespace Phonon
+{
+      class SimplePlayer;
+}
+
 const int IDS_NUMBER	= 100;
 const int IDS_TIME		= 102;
 const int IDS_THEME	= 104;
@@ -129,6 +134,7 @@ protected:
     KComboBox *m_themeCombo;
 
     QButtonGroup *groupTimer;
+	static Phonon::SimplePlayer *mplayer;
 };
 
 #endif // KARD_H

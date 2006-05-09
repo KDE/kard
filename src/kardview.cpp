@@ -188,7 +188,7 @@ void KardView::game()
 
 void KardView::slotTimer()
 {
-	Kard::playSound("kard_click.ogg");
+		Kard::playSound("kard_click.ogg");
 
 	kardW[co] = (KardWidget* ) sender();
 
@@ -274,7 +274,7 @@ void KardView::slotMatch()
 
 void KardView::slotAll()
 {
-	Kard::playSound("kard_gameover.wav");
+		Kard::playSound("kard_gameover.wav");
 	int bestNum = n*m/2;
 	QString mString = i18n("Congratulations!\n"
 	"You finished the game in %1 tries.\n"
