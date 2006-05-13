@@ -1,4 +1,4 @@
-kde4_header()
+
 
 include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
 
@@ -7,7 +7,7 @@ include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_D
 
 install_files( ${DATA_INSTALL_DIR}/kard/sounds/game FILES kard_click.ogg kard_gameover.wav )
 
-kde4_footer()
+
 
 
 

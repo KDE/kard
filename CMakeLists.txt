@@ -1,4 +1,4 @@
-kde4_header()
+
 project(kard)
 
 add_subdirectory( src ) 
@@ -11,7 +11,7 @@ include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_D
 
 
 
-kde4_footer()
+
 
 #original Makefile.am contents follow:
 #SUBDIRS = src

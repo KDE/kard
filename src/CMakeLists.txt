@@ -1,4 +1,4 @@
-kde4_header()
+
 
 add_subdirectory( data ) 
 add_subdirectory( pics ) 
@@ -36,7 +36,7 @@ install_files( ${XDG_APPS_DIR} FILES kard.desktop )
 install_files( ${KCFG_INSTALL_DIR} FILES kard.kcfg )
 install_files( ${DATA_INSTALL_DIR}/kard FILES kardui.rc )
 
-kde4_footer()
+
 
 
 

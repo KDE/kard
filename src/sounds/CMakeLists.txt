@@ -1,4 +1,4 @@
-kde4_header()
+
 
 include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
 add_subdirectory(game)
@@ -6,7 +6,7 @@ add_subdirectory(game)
 ########### install files ###############
 
 
-kde4_footer()
+
 
 
 
