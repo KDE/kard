@@ -45,7 +45,7 @@ Phonon::SimplePlayer *Kard::mplayer = 0L;
 
 Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
 {
-	Kard::mplayer = new Phonon::SimplePlayer(this);
+	Kard::mplayer = new Phonon::SimplePlayer(Phonon::GameCategory,this);
     // Create a status bar
     statusBar( )->insertItem("   ",IDS_NUMBER, 0);
     statusBar( )->insertItem("   ", 101, 0);
