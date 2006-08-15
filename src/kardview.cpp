@@ -366,7 +366,7 @@ void KardView::loadPixmaps()
             QString mString = f.fileName();
             picsList+=mString;
             kDebug() << mString  <<endl;
-            px[i].load(locate("data",mString));
+            px[i].load(KStandardDirs::locate("data",mString));
             if (currentDir == "theme2") {
                 if (i%2 ==0) 
                     opp_numarr[i] = i;
@@ -388,7 +388,7 @@ void KardView::loadSyllables()
   	kDebug() << "Language: " << KardSettings::selectedLanguage() << endl;
   	QString myString=QString("kard/data/%1/syllables.txt").arg(KardSettings::selectedLanguage());
 	QFile myFile;
-	myFile.setFileName(locate("data", myString));
+	myFile.setFileName(KStandardDirs::locate("data", myString));
 	QFile openFileStream(myFile.fileName());
 	openFileStream.open(QIODevice::ReadOnly);
 	QTextStream readFileStr(&openFileStream);

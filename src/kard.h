@@ -35,7 +35,7 @@ class KardView;
 
 namespace Phonon
 {
-      class SimplePlayer;
+      class AudioPlayer;
 }
 
 const int IDS_NUMBER	= 100;
@@ -134,7 +134,7 @@ protected:
     KComboBox *m_themeCombo;
 
     QButtonGroup *groupTimer;
-	static Phonon::SimplePlayer *mplayer;
+	static Phonon::AudioPlayer *mplayer;
 };
 
 #endif // KARD_H

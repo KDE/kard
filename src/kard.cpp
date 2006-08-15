@@ -33,7 +33,7 @@
 #include <kmenubar.h>
 #include <kstatusbar.h>
 #include <ktoolbar.h>
-#include <phonon/simpleplayer.h>
+#include <phonon/audioplayer.h>
 #include <kurl.h>
 //Project headers
 #include "kard.h"
@@ -41,11 +41,11 @@
 // Settings
 #include "kardsettings.h"
 
-Phonon::SimplePlayer *Kard::mplayer = 0L;
+Phonon::AudioPlayer *Kard::mplayer = 0L;
 
 Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
 {
-	Kard::mplayer = new Phonon::SimplePlayer(Phonon::GameCategory,this);
+	Kard::mplayer = new Phonon::AudioPlayer(Phonon::GameCategory,this);
     // Create a status bar
     statusBar( )->insertItem("   ",IDS_NUMBER, 0);
     statusBar( )->insertItem("   ", 101, 0);
@@ -330,7 +330,7 @@ void Kard::setLanguage()
     //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
     //to find the name of the country
     //corresponding to the code and the language the user set
-    KConfig entry(locate("locale", "all_languages"));
+    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
     const QStringList::ConstIterator itEnd = m_languages.end();
     for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
         entry.setGroup(*it);
@@ -359,7 +359,7 @@ void Kard::slotToggleSound()
 void Kard::playSound(const QString &soundname)
 {
     if (KardSettings::sound())
-		mplayer->play(KUrl(locate("data", QString("kard/sounds/game/")+soundname)));
+		mplayer->play(KUrl(KStandardDirs::locate("data", QString("kard/sounds/game/")+soundname)));
 }
 
 #include "kard.moc"
