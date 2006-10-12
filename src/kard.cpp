@@ -43,7 +43,7 @@
 
 Phonon::AudioPlayer *Kard::mplayer = 0L;
 
-Kard::Kard() : KMainWindow( 0,"Kard" ), m_view(new KardView(this))
+Kard::Kard() : KMainWindow(), m_view(new KardView(this))
 {
 	Kard::mplayer = new Phonon::AudioPlayer(Phonon::GameCategory,this);
     // Create a status bar
