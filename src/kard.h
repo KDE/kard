@@ -30,6 +30,7 @@
 class KComboBox;
 class KSelectAction;
 class KToggleAction;
+class KAction;
 class QButtonGroup;
 class KardView;
 

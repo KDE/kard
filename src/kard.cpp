@@ -21,9 +21,10 @@
 #include <QWhatsThis>
 //KDE headers
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kselectaction.h>
 #include <ktoggleaction.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <ktogglefullscreenaction.h>
 #include <kapplication.h>
 #include <kcombobox.h>
@@ -82,18 +83,21 @@ Kard::~Kard()
 
 void Kard::setupActions()
 {
-    KStdAction::quit(this, SLOT(slotQuit()), actionCollection());
+    KStandardAction::quit(this, SLOT(slotQuit()), actionCollection());
             
-    KStdAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+    KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
     
-    m_pFullScreen = KStdAction::fullScreen( 0, 0, actionCollection(), this);
+    m_pFullScreen = KStandardAction::fullScreen( 0, 0, this, actionCollection());
+	actionCollection()->addAction("full_screen", m_pFullScreen );
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotUpdateFullScreen( bool )));
 
-    m_soundAction = new KToggleAction(i18n("Soun&ds"), actionCollection(), "sound");
+    m_soundAction = new KToggleAction(i18n("Soun&ds"), actionCollection());
+	actionCollection()->addAction("sound", m_soundAction );
     connect(m_soundAction , SIGNAL(triggered()), this, SLOT(slotToggleSound()));
 
     //adding choice of number of cards action
-    m_numAction = new KSelectAction(i18n("View"), actionCollection(), "num");
+    m_numAction = new KSelectAction(i18n("View"), actionCollection());
+   actionCollection()->addAction("num", m_numAction );
    connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
     QStringList nums;
     nums+=i18n("4 Cards");
@@ -107,7 +111,8 @@ void Kard::setupActions()
     m_numAction ->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );    
 
     //adding theme action
-    m_themeAction = new KSelectAction(i18n("Themes"), actionCollection(), "themes");
+    m_themeAction = new KSelectAction(i18n("Themes"), actionCollection());
+	actionCollection()->addAction("themes", m_themeAction );
    connect(m_themeAction , SIGNAL(triggered(int)), this, SLOT(slotSetTheme(int )));
     QStringList themesList;
     themesList += i18n("colors");

@@ -165,7 +165,7 @@ void KardView::game()
 					break;
 				case KardSettings::EnumTheme::syllables:
 					k[i][j]->m_kardW->setText(text[shuffle[i][j]]);
-					k[i][j]->m_kardW->setFont(QFont(KGlobalSettings::generalFont().family(), 44, QFont::Bold));
+					///TODO fix k[i][j]->m_kardW->setFont(QFont(KGlobalSettings::generalFont().family(), 44, QFont::Bold));
 					k[i][j]->m_kardW->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 					k[i][j]->m_kardW->setScaledContents(true);
 					break;
