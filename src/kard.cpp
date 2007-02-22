@@ -325,12 +325,11 @@ void Kard::setLanguage()
             m_languages.removeAt(i);
     }
     //write the present languages in config so they cannot be downloaded
-    KConfig *config=kapp->sessionConfig();
-    config->setGroup("KNewStuffStatus");
+     KConfigGroup config(KGlobal::config(), "KNewStuffStatus");
     for (int i=0;  i<m_languages.count(); i++) {
         QString tmp = m_languages[i];
         //if (!config->readEntry(tmp, QDate::currentDate().toString()));
-            config->writeEntry(tmp, QDate::currentDate().toString());
+            config.writeEntry(tmp, QDate::currentDate().toString());
     }
     //we look in $KDEDIR/share/locale/all_languages from /kdelibs/kdecore/all_languages
     //to find the name of the country
@@ -338,8 +337,8 @@ void Kard::setLanguage()
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
     const QStringList::ConstIterator itEnd = m_languages.end();
     for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
-        entry.setGroup(*it);
-        m_sortedNames.append(entry.readEntry("Name"));
+        KConfigGroup group = entry.group(*it);
+        m_sortedNames.append(group.readEntry("Name"));
     }
 }
 
