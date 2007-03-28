@@ -3,7 +3,7 @@ add_subdirectory( data )
 add_subdirectory( pics ) 
 add_subdirectory( sounds ) 
 
-include_directories( ${CMAKE_SOURCE_DIR} ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} )
+#include_directories( ${CMAKE_SOURCE_DIR} ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} )
 
 
 ########### next target ###############
@@ -24,7 +24,7 @@ kde4_add_kcfg_files(kard_SRCS kardsettings.kcfgc )
 
 kde4_add_executable(kard ${kard_SRCS})
 
-target_link_libraries(kard  ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} phononcore)
+target_link_libraries(kard ${KDE4_KDEUI_LIBS} phononcore)
 
 install(TARGETS kard  DESTINATION ${BIN_INSTALL_DIR} )
 
