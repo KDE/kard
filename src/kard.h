@@ -18,10 +18,6 @@
 #ifndef KARD_H
 #define KARD_H
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <kmainwindow.h>
 
 #include "ui_generalui.h"
