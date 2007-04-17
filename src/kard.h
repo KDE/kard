@@ -18,7 +18,7 @@
 #ifndef KARD_H
 #define KARD_H
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 
 #include "ui_generalui.h"
 #include "ui_themeui.h"
@@ -49,7 +49,7 @@ const int IDS_TRY		= 108;
  * @author Anne-Marie Mahfouf <annma@kde.org>
  * @version 0.3
  */
-class Kard : public KMainWindow
+class Kard : public KXmlGuiWindow
 {
     Q_OBJECT
 public:

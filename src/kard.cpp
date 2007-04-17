@@ -44,7 +44,7 @@
 
 Phonon::AudioPlayer *Kard::mplayer = 0L;
 
-Kard::Kard() : KMainWindow(), m_view(new KardView(this))
+Kard::Kard() : KXmlGuiWindow(), m_view(new KardView(this))
 {
 	Kard::mplayer = new Phonon::AudioPlayer(Phonon::GameCategory,this);
     // Create a status bar
@@ -67,7 +67,7 @@ Kard::Kard() : KMainWindow(), m_view(new KardView(this))
     m_themeCombo = toolBar()->getCombo(4);
     m_themeCombo->setToolTip( i18n( "Choose the theme for the cards" ) );
     m_themeCombo->setWhatsThis(  i18n( "You can choose here the theme for the backs of the cards" ) );*/
-    // tell the KMainWindow that this is indeed the main widget
+    // tell the KXmlGuiWindow that this is indeed the main widget
     setCentralWidget(m_view);
     
     // allow the view to change the statusbar and caption
