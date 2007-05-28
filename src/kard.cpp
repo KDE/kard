@@ -200,7 +200,7 @@ void Kard::slotUpdateSettings(const QString &)
 void Kard::slotSetTheme(int id)
 {
     KardSettings::setTheme(id);
-    KardSettings::writeConfig();
+    KardSettings::self()->writeConfig();
     slotUpdateTheme();
     changeLanguage();
     if (boardChanged)
@@ -267,7 +267,7 @@ void Kard::slotUpdateTimer(int id)
     else
         changeStatusbar(i18np("Timer: 1 second","Timer: %n seconds", (int)m_time), IDS_TIME);
    KardSettings::setTime(id);
-   KardSettings::writeConfig(); 
+   KardSettings::self()->writeConfig(); 
 }
 
 void Kard::setNumber(int index)
@@ -287,7 +287,7 @@ void Kard::slotQuit()
 void Kard::saveSettings()
 {
     KardSettings::setNumCards(m_view->noc/4 -1);
-    KardSettings::writeConfig(); 
+    KardSettings::self()->writeConfig(); 
 }
 
 void Kard::slotUpdateFullScreen( bool set )
@@ -347,7 +347,7 @@ void Kard::changeLanguage()
     boardChanged = true;
     kDebug() <<"change lang " << m_languages[KardSettings::languageCombobox()] << endl;
     KardSettings::setSelectedLanguage(m_languages[KardSettings::languageCombobox()]);
-    KardSettings::writeConfig();
+    KardSettings::self()->writeConfig();
     if (m_view->theme=="syllables")
         changeStatusbar(i18n("Language: %1", m_sortedNames[KardSettings::languageCombobox()]), IDS_LANG);
     else
@@ -357,7 +357,7 @@ void Kard::changeLanguage()
 void Kard::slotToggleSound()
 {
     KardSettings::setSound(!KardSettings::sound());
-    KardSettings::writeConfig();
+    KardSettings::self()->writeConfig();
 }
 
 void Kard::playSound(const QString &soundname)
