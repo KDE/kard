@@ -25,7 +25,7 @@
    <item row="0" column="0" >
     <widget class="QGroupBox" name="kcfg_Theme" >
      <property name="whatsThis" >
-      <string>This dialog allows you to choose the theme that will be displayed when you return a card. In colors, you will have to match cards that are the same color; the house theme consists of pictures of objects you can find in a house; opposites are geometrical figures that match with opposite colors.</string>
+      <string>This dialog allows you to choose the theme that will be displayed when you turn a card. In colors, you will have to match cards that are the same color; the house theme consists of pictures of objects you can find in a house; opposites are geometrical figures that match with opposite colors.</string>
      </property>
      <property name="title" >
       <string>Choose the cards' theme</string>

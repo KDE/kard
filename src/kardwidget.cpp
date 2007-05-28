@@ -40,7 +40,7 @@ KardWidget::KardWidget(QWidget *parent, const char *)
 	palette1.setBrush( QPalette::WindowText, Qt::black);
 	palette1.setBrush( QPalette::Window, Qt::lightGray);
 	m_gray->setPalette(palette1);
-	m_kardW->setWhatsThis(i18n( "Click on another kard and try matching a pair" ) );
+	m_kardW->setWhatsThis(i18n( "Click on another card and try matching a pair" ) );
 }
 
 KardWidget::~KardWidget()
