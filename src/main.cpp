@@ -32,30 +32,27 @@ static const char *description =
 	          "with 6 different numbers of cards and\n"
 			  "several themes.");
 
-static KCmdLineOptions options[] =
-{
-    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
-    { 0, 0, 0 }
-};
-
 int main(int argc, char **argv)
 {
-    KAboutData about("kard", I18N_NOOP("Kard"), KARD_VERSION, description,
-                     KAboutData::License_GPL, "(C) 2001-2005 Anne-Marie Mahfouf", 0, 0, "annma@kde.org");
-    about.addAuthor( "Anne-Marie Mahfouf", 0, "annma@kde.org" );
-    about.addCredit("Matt Howe",
-                            I18N_NOOP("Graphics Opposites Theme"), "mdhowe@bigfoot.com");
-    about.addCredit("Renaud Blanchard",
-                            I18N_NOOP("Graphics House Theme"), "kisukuma@chez.com");
-    about.addCredit("Primoz Anzur",
-    			    I18N_NOOP("Coding help, bugs fixing"), "zerokode@gmx.net");
-    about.addCredit("Stephan Binner",
-    			    I18N_NOOP("i18n issues"), "binner@kde.org");
-    about.addCredit("Danny Allen",
-		    I18N_NOOP("Compiled Animals and Food themes"), "danny@dannyallen.co.uk");
-    about.addCredit("Bojan",
-		    I18N_NOOP("Game sounds support, fixes"), "dbojan@gmail.com");
+    KAboutData about("kard", 0, ki18n("Kard"), KARD_VERSION, ki18n(description),
+                     KAboutData::License_GPL, ki18n("(C) 2001-2005 Anne-Marie Mahfouf"), KLocalizedString(), 0, "annma@kde.org");
+    about.addAuthor( ki18n("Anne-Marie Mahfouf"), KLocalizedString(), "annma@kde.org" );
+    about.addCredit(ki18n("Matt Howe"),
+                            ki18n("Graphics Opposites Theme"), "mdhowe@bigfoot.com");
+    about.addCredit(ki18n("Renaud Blanchard"),
+                            ki18n("Graphics House Theme"), "kisukuma@chez.com");
+    about.addCredit(ki18n("Primoz Anzur"),
+    			    ki18n("Coding help, bugs fixing"), "zerokode@gmx.net");
+    about.addCredit(ki18n("Stephan Binner"),
+    			    ki18n("i18n issues"), "binner@kde.org");
+    about.addCredit(ki18n("Danny Allen"),
+		    ki18n("Compiled Animals and Food themes"), "danny@dannyallen.co.uk");
+    about.addCredit(ki18n("Bojan"),
+		    ki18n("Game sounds support, fixes"), "dbojan@gmail.com");
     KCmdLineArgs::init(argc, argv, &about);
+
+    KCmdLineOptions options;
+    options.add("+[URL]", ki18n( "Document to open" ));
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
 
