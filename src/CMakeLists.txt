@@ -14,8 +14,6 @@ set(kard_SRCS
    kardview.cpp 
    kardwidget.cpp )
 
-kde4_automoc(${kard_SRCS})
-
 kde4_add_ui_files(kard_SRCS 
    generalui.ui 
    themeui.ui )
