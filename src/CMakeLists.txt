@@ -28,7 +28,7 @@ install(TARGETS kard  DESTINATION ${BIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES kard.desktop DESTINATION ${XDG_APPS_DIR} )
+install( FILES kard.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install( FILES kard.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 install( FILES kardui.rc DESTINATION ${DATA_INSTALL_DIR}/kard )
 
