@@ -32,7 +32,7 @@ class KardView;
 
 namespace Phonon
 {
-      class AudioPlayer;
+      class MediaObject;
 }
 
 const int IDS_NUMBER	= 100;
@@ -131,7 +131,7 @@ protected:
     KComboBox *m_themeCombo;
 
     QButtonGroup *groupTimer;
-	static Phonon::AudioPlayer *mplayer;
+	static Phonon::MediaObject *mplayer;
 };
 
 #endif // KARD_H

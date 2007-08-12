@@ -34,7 +34,7 @@
 #include <kmenubar.h>
 #include <kstatusbar.h>
 #include <ktoolbar.h>
-#include <phonon/audioplayer.h>
+#include <Phonon/MediaObject>
 #include <kurl.h>
 //Project headers
 #include "kard.h"
@@ -42,11 +42,11 @@
 // Settings
 #include "kardsettings.h"
 
-Phonon::AudioPlayer *Kard::mplayer = 0L;
+Phonon::MediaObject *Kard::mplayer = 0L;
 
 Kard::Kard() : KXmlGuiWindow(), m_view(new KardView(this))
 {
-	Kard::mplayer = new Phonon::AudioPlayer(Phonon::GameCategory,this);
+	Kard::mplayer = Phonon::createPlayer(Phonon::GameCategory);
     // Create a status bar
     statusBar( )->insertItem("   ",IDS_NUMBER, 0);
     statusBar( )->insertItem("   ", 101, 0);
@@ -362,8 +362,10 @@ void Kard::slotToggleSound()
 
 void Kard::playSound(const QString &soundname)
 {
-    if (KardSettings::sound())
-		mplayer->play(KUrl(KStandardDirs::locate("data", QString("kard/sounds/game/")+soundname)));
+    if (KardSettings::sound()) {
+		mplayer->setCurrentSource(KUrl(KStandardDirs::locate("data", QString("kard/sounds/game/")+soundname)));
+        mplayer->play();
+    }
 }
 
 #include "kard.moc"
