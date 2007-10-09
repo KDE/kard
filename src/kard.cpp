@@ -265,7 +265,7 @@ void Kard::slotUpdateTimer(int id)
     if (m_time<1)
         changeStatusbar(i18nc("fraction of whole second","Timer: %1 seconds", m_time), IDS_TIME);
     else
-        changeStatusbar(i18np("Timer: 1 second","Timer: %n seconds", (int)m_time), IDS_TIME);
+        changeStatusbar(i18np("Timer: 1 second","Timer: %1 seconds", (int)m_time), IDS_TIME);
    KardSettings::setTime(id);
    KardSettings::self()->writeConfig(); 
 }
