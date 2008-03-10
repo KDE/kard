@@ -293,10 +293,10 @@ void Kard::saveSettings()
 void Kard::slotUpdateFullScreen( bool set )
 {
     if( set ){
-        showFullScreen();
+        setWindowState( windowState() | Qt::WindowFullScreen ); // set
         menuBar()->hide();
     } else {
-        showNormal();
+        setWindowState( windowState() & ~Qt::WindowFullScreen ); // reset
         menuBar()->show();
     }
 }
