@@ -46,7 +46,7 @@ Phonon::MediaObject *Kard::mplayer = 0L;
 
 Kard::Kard() : KXmlGuiWindow(), m_view(new KardView(this))
 {
-	Kard::mplayer = Phonon::createPlayer(Phonon::GameCategory);
+    Kard::mplayer = Phonon::createPlayer(Phonon::GameCategory);
     // Create a status bar
     statusBar( )->insertItem("   ",IDS_NUMBER, 0);
     statusBar( )->insertItem("   ", 101, 0);
@@ -92,13 +92,13 @@ void Kard::setupActions()
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotUpdateFullScreen( bool )));
 
     m_soundAction = new KToggleAction(i18n("Soun&ds"), actionCollection());
-	actionCollection()->addAction("sound", m_soundAction );
+    actionCollection()->addAction("sound", m_soundAction );
     connect(m_soundAction , SIGNAL(triggered()), this, SLOT(slotToggleSound()));
 
     //adding choice of number of cards action
     m_numAction = new KSelectAction(i18n("View"), actionCollection());
-   actionCollection()->addAction("num", m_numAction );
-   connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
+    actionCollection()->addAction("num", m_numAction );
+    connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
     QStringList nums;
     nums+=i18n("4 Cards");
     nums+=i18n("8 Cards");
@@ -107,13 +107,13 @@ void Kard::setupActions()
     nums+=i18n("20 Cards");
     nums+=i18n("24 Cards");
     m_numAction->setItems(nums);
-    m_numAction ->setToolTip( i18n( "Choose the number of cards" ) );
-    m_numAction ->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );    
+    m_numAction->setToolTip( i18n( "Choose the number of cards" ) );
+    m_numAction->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );    
 
     //adding theme action
     m_themeAction = new KSelectAction(i18n("Themes"), actionCollection());
-	actionCollection()->addAction("themes", m_themeAction );
-   connect(m_themeAction , SIGNAL(triggered(int)), this, SLOT(slotSetTheme(int )));
+    actionCollection()->addAction("themes", m_themeAction );
+    connect(m_themeAction , SIGNAL(triggered(int)), this, SLOT(slotSetTheme(int )));
     QStringList themesList;
     themesList += i18n("colors");
     themesList += i18n("house");
@@ -162,8 +162,8 @@ void Kard::changeStatusbar(const QString& text, int id)
 
 void Kard::changeCaption(const QString& text)
 {
-	// display the text on the caption
-	setCaption(text);
+    // display the text on the caption
+    setCaption(text);
 }
 
 void Kard::readConfig()
@@ -192,8 +192,9 @@ void Kard::slotUpdateSettings(const QString &)
         boardChanged = true;
     }
     changeLanguage();
-    if (boardChanged)
-        m_view->newBoard();	
+    if (boardChanged) {
+        m_view->newBoard();
+    }
     m_soundAction->setChecked(KardSettings::sound());
 }
 
@@ -203,8 +204,9 @@ void Kard::slotSetTheme(int id)
     KardSettings::self()->writeConfig();
     slotUpdateTheme();
     changeLanguage();
-    if (boardChanged)
-		m_view->newBoard();	
+    if (boardChanged) {
+	m_view->newBoard();
+    }
 }
 
 void Kard::slotUpdateTheme()
@@ -363,7 +365,7 @@ void Kard::slotToggleSound()
 void Kard::playSound(const QString &soundname)
 {
     if (KardSettings::sound()) {
-		mplayer->setCurrentSource(KUrl(KStandardDirs::locate("data", QString("kard/sounds/game/")+soundname)));
+	mplayer->setCurrentSource(KUrl(KStandardDirs::locate("data", QString("kard/sounds/game/")+soundname)));
         mplayer->play();
     }
 }
