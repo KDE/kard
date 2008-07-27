@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2006 Anne-Marie Mahfouf <annma@kde.org>
+ * Copyright  2001-2008 Anne-Marie Mahfouf <annma@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
@@ -23,11 +23,12 @@
 #include "ui_generalui.h"
 #include "ui_themeui.h"
 
+class QButtonGroup;
+class KAction;
 class KComboBox;
 class KSelectAction;
 class KToggleAction;
-class KAction;
-class QButtonGroup;
+
 class KardView;
 
 namespace Phonon
@@ -36,10 +37,10 @@ namespace Phonon
 }
 
 const int IDS_NUMBER	= 100;
-const int IDS_TIME		= 102;
+const int IDS_TIME	= 102;
 const int IDS_THEME	= 104;
-const int IDS_LANG		= 106;
-const int IDS_TRY		= 108;
+const int IDS_LANG	= 106;
+const int IDS_TRY	= 108;
 
 /**
  * This class serves as the main window for Kard.  It handles the
@@ -47,7 +48,7 @@ const int IDS_TRY		= 108;
  *
  * @short Main window class
  * @author Anne-Marie Mahfouf <annma@kde.org>
- * @version 0.3
+ * @version 0.4.2
  */
 class Kard : public KXmlGuiWindow
 {
@@ -59,7 +60,7 @@ public:
     ///Destructor
     virtual ~Kard();
 
-	static void playSound(const QString &soundname);
+    static void playSound(const QString &soundname);
 
 private slots:
 
@@ -75,16 +76,16 @@ private slots:
     void readConfig();
     ///Write number of cards in config
     void saveSettings();
-     /**
-     *When youchange the number of cards via the Combobox, the
-     *statusBar is updated, config is written, view is refreshed
-      @param index number of cards is (index+1)*4
-     */
+    /**
+    *When youchange the number of cards via the Combobox, the
+    *statusBar is updated, config is written, view is refreshed
+    @param index number of cards is (index+1)*4
+    */
     void setNumber(int index);
     ///Write settings in config file then quit the program
     void slotQuit();
     /**Full Screen Mode: this slot is called when the Full Screen icon is clicked or when it is checked in the Settings menu
-     @param bool wether or not full screen is selected
+     @param bool whether or not full screen is selected
      */
     void slotUpdateFullScreen( bool );
     ///After Configure Kard dialog is run and some settings changed
@@ -98,10 +99,12 @@ private slots:
     ///When the sound option is toggled
     void slotToggleSound();
 
+    void toggleFullScreen();
+
 private:
 
     ///set to true when the view needs to be refreshed
-    bool boardChanged;
+    bool m_boardChanged;
     ///Full-Screen mode action
     KAction* m_pFullScreen;
     /// Sound toggle action
@@ -131,7 +134,7 @@ protected:
     KComboBox *m_themeCombo;
 
     QButtonGroup *groupTimer;
-	static Phonon::MediaObject *mplayer;
+    static Phonon::MediaObject *mplayer;
 };
 
 #endif // KARD_H

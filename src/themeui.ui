@@ -1,39 +1,24 @@
 <ui version="4.0" >
- <author></author>
- <comment></comment>
- <exportmacro></exportmacro>
  <class>themeui</class>
  <widget class="QWidget" name="themeui" >
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>126</width>
-    <height>218</height>
+    <width>327</width>
+    <height>354</height>
    </rect>
   </property>
-  <layout class="QGridLayout" >
-   <property name="margin" >
-    <number>9</number>
-   </property>
-   <property name="spacing" >
-    <number>6</number>
-   </property>
+  <layout class="QGridLayout" name="gridLayout" >
    <item row="0" column="0" >
-    <widget class="QGroupBox" name="kcfg_Theme" >
+    <widget class="KButtonGroup" name="kcfg_Theme" >
      <property name="whatsThis" >
       <string>This dialog allows you to choose the theme that will be displayed when you turn a card. In colors, you will have to match cards that are the same color; the house theme consists of pictures of objects you can find in a house; opposites are geometrical figures that match with opposite colors.</string>
      </property>
      <property name="title" >
       <string>Choose the cards' theme</string>
      </property>
-     <layout class="QVBoxLayout" >
-      <property name="margin" >
-       <number>9</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
+     <layout class="QVBoxLayout" name="verticalLayout" >
       <item>
        <widget class="QRadioButton" name="colors" >
         <property name="text" >
@@ -81,7 +66,14 @@
    </item>
   </layout>
  </widget>
- <pixmapfunction></pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>KButtonGroup</class>
+   <extends>QGroupBox</extends>
+   <header>kbuttongroup.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

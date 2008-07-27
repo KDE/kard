@@ -1,6 +1,9 @@
 TODO - KARD
 -----------------
-- suppress Sounds in Settings -> Configure Kard dialog as it's already a ToggleAction
+
+- THEME MANAGER in separate code
+
+--------------------
 
 New ideas
 - see how to make the cards in QPainter with a background (background is a png and could be changed)
@@ -40,3 +43,4 @@ GUI
 
 MORE LONG TERM GOAL
 - develop a board which could load several young-kids oriented apps: kard, klettres, Simon says -like, a drawing+stamps tool, Potato-Guy? and others to be decided. Maybe similar to GCompris. GUI to be worked on. Plugins.
+

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2006 Anne-Marie Mahfouf <annma@kde.org>
+ *  Copyright 2001-2008 Anne-Marie Mahfouf <annma@kde.org>
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
     License as published by the Free Software Foundation.
@@ -18,12 +18,11 @@
 #define _KARDVIEW_H_
 
 //Qt headers
-#include <qlayout.h>
-//Added by qt3to4:
-#include <QPixmap>
 #include <QGridLayout>
+#include <QLayout>
+#include <QList>
+#include <QPixmap>
 #include <QResizeEvent>
-#include <Q3PtrList>
 
 #include <krandomsequence.h>
 //Project headers
@@ -66,16 +65,16 @@ private:
 	///The 2 clicked KardWidgets
 	KardWidget* kardW[2];
 	///Contains the colors for theme "colors"
-	QColor a[24];
+	QList<QColor> a;
 	///Store the colors of the 2 discovered cards
 	QColor color[2];
-	///Contains the pixmaps for theme "theme1"
+	///Contains the pixmaps for theme "house"
 	QPixmap px[24];
-	///Contains the pixmaps for theme "theme2"
+	///Contains the pixmaps for theme "opposites"
 	QPixmap opp[24];
 	///Contains the pixmaps for theme "animals"
 	QPixmap ani[24];
-	///Contains the pixmaps for theme "animals"
+	///Contains the pixmaps for theme "food"
 	QPixmap food[24];
 	
 	QString text[24];
@@ -96,7 +95,7 @@ private:
 	///Serial number of the QPixmap background for the 2 clicked cards
 	int getRef[2];
 	///Lists of all kardWidgets labels
-	Q3PtrList<KardWidget>        m_listButtons;
+	QList<KardWidget *> m_listButtons;
 	///Number of tries before succeeding
 	int tries;
 	///KDE random generator

@@ -5,212 +5,114 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>136</width>
-    <height>229</height>
+    <width>189</width>
+    <height>241</height>
    </rect>
   </property>
-  <layout class="QGridLayout" >
-   <property name="leftMargin" >
-    <number>9</number>
-   </property>
-   <property name="topMargin" >
-    <number>9</number>
-   </property>
-   <property name="rightMargin" >
-    <number>9</number>
-   </property>
-   <property name="bottomMargin" >
-    <number>9</number>
-   </property>
-   <property name="horizontalSpacing" >
-    <number>6</number>
-   </property>
-   <property name="verticalSpacing" >
-    <number>6</number>
-   </property>
-   <item row="0" column="0" >
-    <layout class="QVBoxLayout" >
+  <layout class="QVBoxLayout" name="verticalLayout_2" >
+   <item>
+    <layout class="QHBoxLayout" >
      <property name="spacing" >
       <number>6</number>
      </property>
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
+     <property name="margin" >
       <number>0</number>
      </property>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
-        <number>6</number>
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>Number of cards:</string>
        </property>
-       <property name="leftMargin" >
-        <number>0</number>
-       </property>
-       <property name="topMargin" >
-        <number>0</number>
-       </property>
-       <property name="rightMargin" >
-        <number>0</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="label" >
-         <property name="text" >
-          <string>Number of cards:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="kcfg_numCards" >
-         <item>
-          <property name="text" >
-           <string>4</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>8</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>12</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>16</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>20</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>24</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="kcfg_Time" >
-       <property name="whatsThis" >
-        <string>You will choose the time the cards are displayed for. Choosing slow will display the cards for 2 seconds, medium will display the cards for 1 second and quick will display the cards for only 1/2 second.</string>
-       </property>
-       <property name="title" >
-        <string>Timer</string>
-       </property>
-       <property name="checkable" >
-        <bool>false</bool>
-       </property>
-       <property name="checked" >
-        <bool>false</bool>
-       </property>
-       <layout class="QGridLayout" >
-        <property name="leftMargin" >
-         <number>9</number>
-        </property>
-        <property name="topMargin" >
-         <number>9</number>
-        </property>
-        <property name="rightMargin" >
-         <number>9</number>
-        </property>
-        <property name="bottomMargin" >
-         <number>9</number>
-        </property>
-        <property name="horizontalSpacing" >
-         <number>6</number>
-        </property>
-        <property name="verticalSpacing" >
-         <number>6</number>
-        </property>
-        <item row="0" column="0" >
-         <widget class="QRadioButton" name="slow" >
-          <property name="autoFillBackground" >
-           <bool>false</bool>
-          </property>
-          <property name="text" >
-           <string>Slow</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0" >
-         <widget class="QRadioButton" name="quick" >
-          <property name="text" >
-           <string>Quick</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" >
-         <widget class="QRadioButton" name="medium" >
-          <property name="text" >
-           <string>Medium</string>
-          </property>
-          <property name="checkable" >
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <property name="leftMargin" >
-        <number>0</number>
-       </property>
-       <property name="topMargin" >
-        <number>0</number>
-       </property>
-       <property name="rightMargin" >
-        <number>0</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>0</number>
-       </property>
+      <widget class="QComboBox" name="kcfg_numCards" >
        <item>
-        <widget class="QLabel" name="label_2" >
-         <property name="text" >
-          <string>Language</string>
-         </property>
-        </widget>
+        <property name="text" >
+         <string>4</string>
+        </property>
        </item>
        <item>
-        <widget class="QComboBox" name="kcfg_LanguageCombobox" >
-         <property name="toolTip" >
-          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Choose the language for the syllables mode.&lt;/p>&lt;/body>&lt;/html></string>
-         </property>
-        </widget>
+        <property name="text" >
+         <string>8</string>
+        </property>
        </item>
-      </layout>
+       <item>
+        <property name="text" >
+         <string>12</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>16</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>20</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>24</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="KButtonGroup" name="kcfg_Time" >
+     <property name="title" >
+      <string>Timer</string>
+     </property>
+     <property name="current" stdset="0" >
+      <number>1</number>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout" >
+      <item>
+       <widget class="QRadioButton" name="slow" >
+        <property name="autoFillBackground" >
+         <bool>false</bool>
+        </property>
+        <property name="text" >
+         <string>Slow</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="medium" >
+        <property name="text" >
+         <string>Medium</string>
+        </property>
+        <property name="checkable" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="quick" >
+        <property name="text" >
+         <string>Quick</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" >
+     <item>
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
+        <string>Language</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="kcfg_sound" >
+      <widget class="QComboBox" name="kcfg_LanguageCombobox" >
        <property name="toolTip" >
-        <string>Enable game sounds</string>
-       </property>
-       <property name="whatsThis" >
-        <string>If checked, you'll hear a sound for each card clicked and when the game is finished.</string>
-       </property>
-       <property name="text" >
-        <string>Sounds</string>
+        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Choose the language for the syllables mode.&lt;/p>&lt;/body>&lt;/html></string>
        </property>
       </widget>
      </item>
@@ -218,6 +120,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KButtonGroup</class>
+   <extends>QGroupBox</extends>
+   <header>kbuttongroup.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

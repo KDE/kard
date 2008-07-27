@@ -12,7 +12,8 @@ set(kard_SRCS
    main.cpp 
    kard.cpp 
    kardview.cpp 
-   kardwidget.cpp )
+   kardwidget.cpp 
+   kardtheme.cpp )
 
 kde4_add_ui_files(kard_SRCS 
    generalui.ui 

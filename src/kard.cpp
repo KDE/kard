@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2005 Anne-Marie Mahfouf <annma@kde.org>
+ *  Copyright  2001-2008 Anne-Marie Mahfouf <annma@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of version 2 of the GNU General Public
@@ -22,23 +22,24 @@
 //KDE headers
 #include <kaction.h>
 #include <kactioncollection.h>
-#include <kselectaction.h>
-#include <ktoggleaction.h>
-#include <kstandardaction.h>
-#include <ktogglefullscreenaction.h>
 #include <kapplication.h>
 #include <kcombobox.h>
 #include <kconfigdialog.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmenubar.h>
+#include <kselectaction.h>
+#include <kstandardaction.h>
 #include <kstatusbar.h>
+#include <ktogglefullscreenaction.h>
 #include <ktoolbar.h>
-#include <Phonon/MediaObject>
 #include <kurl.h>
+#include <Phonon/MediaObject>
+
 //Project headers
 #include "kard.h"
 #include "kardview.h"
+#include "kardtheme.h"
 // Settings
 #include "kardsettings.h"
 
@@ -61,12 +62,6 @@ Kard::Kard() : KXmlGuiWindow(), m_view(new KardView(this))
     setupActions();
     setGeometry(0, 0, 600, 500);
     resize( QSize(600, 500).expandedTo(minimumSizeHint()) );
-
-   // toolBar()->insertSeparator(-1, 1); //id=1 for separator
-   /* toolBar()->insertCombo(themesList, 4, false, SIGNAL(activated(int )), this, SLOT(slotSetTheme(int )));
-    m_themeCombo = toolBar()->getCombo(4);
-    m_themeCombo->setToolTip( i18n( "Choose the theme for the cards" ) );
-    m_themeCombo->setWhatsThis(  i18n( "You can choose here the theme for the backs of the cards" ) );*/
     // tell the KXmlGuiWindow that this is indeed the main widget
     setCentralWidget(m_view);
     
@@ -114,25 +109,23 @@ void Kard::setupActions()
     m_themeAction = new KSelectAction(i18n("Themes"), actionCollection());
     actionCollection()->addAction("themes", m_themeAction );
     connect(m_themeAction , SIGNAL(triggered(int)), this, SLOT(slotSetTheme(int )));
-    QStringList themesList;
-    themesList += i18n("colors");
-    themesList += i18n("house");
-    themesList += i18n("opposites");
-    themesList +=i18n("syllables");
-    themesList +=i18n("animals");
-    themesList +=i18n("food");
-    m_themeAction->setItems(themesList);
+    m_themeAction->setItems(KardThemeFactory::instance()->themeUiList());
     m_themeAction->setToolTip( i18n( "Choose the theme for the cards" ) );
     m_themeAction->setWhatsThis(  i18n( "You can choose here the theme for the backs of the cards" ) );
-
+    KStandardAction::fullScreen(this, SLOT(toggleFullScreen()), this, actionCollection());
     setupGUI();
+}
+
+void Kard::toggleFullScreen()
+{
+    KToggleFullScreenAction::setFullScreen( this, actionCollection()->action("fullscreen")->isChecked());
 }
 
 void Kard::optionsPreferences()
 {
-    if ( KConfigDialog::showDialog( "settings" ) ) 
+    if ( KConfigDialog::showDialog( "settings" ) ) {
         return; 
-    
+    }
     //KConfigDialog didn't find an instance of this dialog, so lets create it : 
     KConfigDialog* dialog = new KConfigDialog( this, "settings",  KardSettings::self() );
     dialog->setModal(true); //makes it modal even if it's not the default
@@ -145,7 +138,6 @@ void Kard::optionsPreferences()
     connect(groupTimer, SIGNAL(buttonClicked(int)), this, SLOT(slotUpdateTimer(int)));
     ui_general.kcfg_LanguageCombobox->insertItems(0, m_sortedNames);
     ui_general.kcfg_LanguageCombobox->setCurrentIndex(m_languages.indexOf(KardSettings::selectedLanguage()));
-    ui_general.kcfg_sound->setChecked(KardSettings::sound());
     dialog->addPage(generalSettingsDlg, i18n("General"), "wizard");
     QWidget *themeSettingsDlg = new QWidget;
     ui_theme.setupUi(themeSettingsDlg);
@@ -168,7 +160,7 @@ void Kard::changeCaption(const QString& text)
 
 void Kard::readConfig()
 {
-    boardChanged = false;
+    m_boardChanged = false;
     //read number of cards from config, set default to 16
     m_view->noc = (KardSettings::numCards()+1)*4 ;
     m_numAction->setCurrentItem(KardSettings::numCards());
@@ -184,68 +176,37 @@ void Kard::readConfig()
 
 void Kard::slotUpdateSettings(const QString &)
 {
-    //TODO slotUpdateTimer();
     slotUpdateTheme();
     if (m_view->noc != (KardSettings::numCards()+1)*4) {
         m_view->noc = (KardSettings::numCards()+1)*4;
         m_numAction->setCurrentItem(KardSettings::numCards());
-        boardChanged = true;
+        m_boardChanged = true;
     }
     changeLanguage();
-    if (boardChanged) {
+    if (m_boardChanged) {
         m_view->newBoard();
     }
-    m_soundAction->setChecked(KardSettings::sound());
 }
 
 void Kard::slotSetTheme(int id)
 {
     KardSettings::setTheme(id);
     KardSettings::self()->writeConfig();
-    slotUpdateTheme();
+    m_view->theme =KardThemeFactory::instance()->buildTheme(id)->name();
+    m_themeAction->setCurrentItem(KardSettings::theme());
+    changeStatusbar(i18n("Theme: %1", KardThemeFactory::instance()->buildTheme(id)->uiName()), IDS_THEME);
     changeLanguage();
-    if (boardChanged) {
+    if (m_boardChanged) {
 	m_view->newBoard();
     }
 }
 
 void Kard::slotUpdateTheme()
 {
-    //m_themeCombo->setCurrentItem(KardSettings::theme());
-    switch (KardSettings::theme()) {
-        case KardSettings::EnumTheme::colors:
-            if (m_view->theme=="house" || m_view->theme=="opposites"|| m_view->theme=="syllables" || m_view->theme=="animals") 
-                boardChanged = true;
-            m_view->theme = "colors";
-            break;
-        case KardSettings::EnumTheme::house:
-            if (m_view->theme=="colors" || m_view->theme=="opposites" || m_view->theme=="syllables" || m_view->theme=="animals" || m_view->theme=="food")
-                boardChanged = true;
-            m_view->theme = "house";
-            break;
-        case KardSettings::EnumTheme::opposites:
-            if (m_view->theme=="house" || m_view->theme=="colors"|| m_view->theme=="syllables" || m_view->theme=="animals" || m_view->theme=="food") 
-                boardChanged = true;
-            m_view->theme = "opposites";
-            break;
-        case KardSettings::EnumTheme::syllables:
-            if (m_view->theme=="house" || m_view->theme=="colors" || m_view->theme=="opposites" || m_view->theme=="animals" || m_view->theme=="food") 
-                boardChanged = true;
-            m_view->theme = "syllables";
-            break;
-        case KardSettings::EnumTheme::animals:
-            if (m_view->theme=="house" || m_view->theme=="colors" || m_view->theme=="opposites" || m_view->theme=="syllables" || m_view->theme=="food") 
-                boardChanged = true;
-            m_view->theme = "animals";
-        break;
-        case KardSettings::EnumTheme::food:
-            if (m_view->theme=="house" || m_view->theme=="colors" || m_view->theme=="opposites" || m_view->theme=="syllables" || m_view->theme=="animals") 
-                boardChanged = true;
-            m_view->theme = "food";
-            break;
-    }
-    
-    changeStatusbar(i18n("Theme: %1", m_view->theme), IDS_THEME);
+    m_view->theme = KardThemeFactory::instance()->themeList()[KardSettings::theme()];
+    m_themeAction->setCurrentItem(KardSettings::theme());
+    changeStatusbar(i18n("Theme: %1", KardThemeFactory::instance()->buildTheme(KardSettings::theme())->uiName()), IDS_THEME);
+    m_boardChanged = true;
 }
 
 void Kard::slotUpdateTimer(int id)
@@ -253,28 +214,29 @@ void Kard::slotUpdateTimer(int id)
     //read timer from config, set default to 1 second
     switch (id)  {
         case 0:
-            m_view->myTime = 2000;
+            m_view->myTime = 2000; // 2 seconds
             break;
         case 1:
-            m_view->myTime = 1000;
+            m_view->myTime = 1000; // 1 second
             break;
         case 2:
-            m_view->myTime = 500;
+            m_view->myTime = 500; // half a second
             break;
     }
     double m_time = double(m_view->myTime)/double(1000);
     
-    if (m_time<1)
-        changeStatusbar(i18nc("fraction of whole second","Timer: %1 seconds", m_time), IDS_TIME);
-    else
+    if (m_time<1)  {
+        changeStatusbar(i18nc("fraction of whole second","Timer: %1 second", m_time), IDS_TIME);
+    }
+    else  {
         changeStatusbar(i18np("Timer: 1 second","Timer: %1 seconds", (int)m_time), IDS_TIME);
-   KardSettings::setTime(id);
-   KardSettings::self()->writeConfig(); 
+    }
+    KardSettings::setTime(id);
+    KardSettings::self()->writeConfig(); 
 }
 
 void Kard::setNumber(int index)
 {
-    kDebug() <<"change num index " << index << endl;
     m_view->noc=(index+1)*4;
     saveSettings();
     changeStatusbar(i18n("Number of cards: %1", m_view->noc), IDS_NUMBER);
@@ -346,7 +308,7 @@ void Kard::setLanguage()
 
 void Kard::changeLanguage()
 {
-    boardChanged = true;
+    m_boardChanged = true;
     kDebug() <<"change lang " << m_languages[KardSettings::languageCombobox()] << endl;
     KardSettings::setSelectedLanguage(m_languages[KardSettings::languageCombobox()]);
     KardSettings::self()->writeConfig();
