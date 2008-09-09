@@ -1,11 +1,10 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Kard
 Name[xx]=xxKardxx
-Exec=kard %i %m -caption "%c"
+Exec=kard %i -caption "%c"
 Icon=kard
 Type=Application
-DocPath=kard/kard.html
+X-DocPath=kard/kard.html
 GenericName=Memory-like game
 GenericName[bg]=Игра за упражнение на паметта
 GenericName[br]=C'hoari doare memor
