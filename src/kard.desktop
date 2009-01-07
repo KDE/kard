@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kard
+Name[pa]=ਕੇਰਡ
 Name[x-test]=xxKardxx
 Exec=kard %i -caption "%c"
 Icon=kard
@@ -16,6 +17,7 @@ GenericName[ga]=Cluiche cuimhne
 GenericName[gl]=Xogo de memoria
 GenericName[km]=ល្បែង​ដូច​ជា​សតិ
 GenericName[nds]=En "Memory"-liek Speel
+GenericName[pa]=ਮੈਮੋਰੀ-ਵਰਗੀ ਖੇਡ
 GenericName[pt]=Jogo de memória
 GenericName[pt_BR]=Jogo de memória
 GenericName[sv]=Ett spel som liknar Memory
