@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kard
+Name[hne]=कार्ड
 Name[nn]=Kort
 Name[pa]=ਕੇਰਡ
 Name[x-test]=xxKardxx
@@ -17,6 +18,7 @@ GenericName[et]=Meelespidamise mäng
 GenericName[fr]=Un jeu memory-like
 GenericName[ga]=Cluiche cuimhne
 GenericName[gl]=Xogo de memoria
+GenericName[hne]=याददास्त-जइसन खेल
 GenericName[km]=ល្បែង​ដូច​ជា​សតិ
 GenericName[nds]=En "Memory"-liek Speel
 GenericName[nn]=Eit Memory-liknande spel
@@ -38,6 +40,7 @@ Comment[et]=KDE meelespidamise mäng
 Comment[fr]=Un jeu memory-like pour KDE
 Comment[ga]=Cluiche cuimhne le haghaidh KDE
 Comment[gl]=Un xogo de memoria para KDE
+Comment[hne]=केडीई बर याददास्त जइसन खेल
 Comment[km]=ល្បែង​ដូច​ជា​សតិ​សម្រាប់ KDE
 Comment[nds]=En "Memory"-liek Speel för KDE
 Comment[nn]=Eit Memory-liknande spel til KDE
