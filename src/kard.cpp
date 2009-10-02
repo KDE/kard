@@ -299,7 +299,6 @@ void Kard::setLanguage()
     //to find the name of the country
     //corresponding to the code and the language the user set
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-    const QStringList::ConstIterator itEnd = m_languages.end();
     for (QStringList::Iterator it = m_languages.begin(); it != m_languages.end(); ++it) {
         KConfigGroup group = entry.group(*it);
         m_sortedNames.append(group.readEntry("Name"));
