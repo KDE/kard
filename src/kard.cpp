@@ -95,12 +95,12 @@ void Kard::setupActions()
     actionCollection()->addAction("num", m_numAction );
     connect(m_numAction , SIGNAL(triggered(int)), this, SLOT(setNumber(int)));
     QStringList nums;
-    nums+=i18n("4 Cards");
-    nums+=i18n("8 Cards");
-    nums+=i18n("12 Cards");
-    nums+=i18n("16 Cards");
-    nums+=i18n("20 Cards");
-    nums+=i18n("24 Cards");
+    nums+=i18np("%1 Card", "%1 Cards", 4);
+    nums+=i18np("%1 Card", "%1 Cards", 8);
+    nums+=i18np("%1 Card", "%1 Cards", 12);
+    nums+=i18np("%1 Card", "%1 Cards", 16);
+    nums+=i18np("%1 Card", "%1 Cards", 20);
+    nums+=i18np("%1 Card", "%1 Cards", 24);
     m_numAction->setItems(nums);
     m_numAction->setToolTip( i18n( "Choose the number of cards" ) );
     m_numAction->setWhatsThis(  i18n( "Choose the level of difficulty by setting the number of cards from 4 (very easy) to 24 (more difficult)" ) );    
