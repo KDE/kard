@@ -83,7 +83,7 @@ void Kard::setupActions()
     KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
     
     m_pFullScreen = KStandardAction::fullScreen( 0, 0, this, actionCollection());
-	actionCollection()->addAction("full_screen", m_pFullScreen );
+    actionCollection()->addAction("full_screen", m_pFullScreen );
     connect( m_pFullScreen, SIGNAL( toggled( bool )), this, SLOT( slotUpdateFullScreen( bool )));
 
     m_soundAction = new KToggleAction(i18n("Soun&ds"), actionCollection());
@@ -223,12 +223,12 @@ void Kard::slotUpdateTimer(int id)
             m_view->myTime = 500; // half a second
             break;
     }
+    
     double m_time = double(m_view->myTime)/double(1000);
     
     if (m_time<1)  {
         changeStatusbar(i18nc("fraction of whole second","Timer: %1 second", m_time), IDS_TIME);
-    }
-    else  {
+    } else  {
         changeStatusbar(i18np("Timer: 1 second","Timer: %1 seconds", (int)m_time), IDS_TIME);
     }
     KardSettings::setTime(id);
@@ -271,17 +271,23 @@ void Kard::setLanguage()
     m_sortedNames.clear();
     //the program scans in khangman/data/ to see what languages data is found
     QStringList mdirs = KGlobal::dirs()->findDirs("data", "kard/data/");
-    if (mdirs.isEmpty()) 
+    
+    if (mdirs.isEmpty()) { 
         return;
+    }
+    
     for (QStringList::Iterator it =mdirs.begin(); it !=mdirs.end(); ++it ) {
         QDir dir(*it);
         m_languages += dir.entryList(QDir::Dirs, QDir::Name);
         m_languages.removeAll(".");
         m_languages.removeAll("..");
     }
+    
     m_languages.sort();
-    if (m_languages.isEmpty()) 
+    
+    if (m_languages.isEmpty()) {
         return;
+    }
     //find duplicated entries in KDEDIR and KDEHOME
     //TODO check that code, seems fishy
     for (int i=0;  i<m_languages.count(); i++) {
@@ -311,10 +317,12 @@ void Kard::changeLanguage()
     kDebug() <<"change lang " << m_languages[KardSettings::languageCombobox()] << endl;
     KardSettings::setSelectedLanguage(m_languages[KardSettings::languageCombobox()]);
     KardSettings::self()->writeConfig();
-    if (m_view->theme=="syllables")
+    
+    if (m_view->theme=="syllables") {
         changeStatusbar(i18n("Language: %1", m_sortedNames[KardSettings::languageCombobox()]), IDS_LANG);
-    else
+    } else {
         changeStatusbar("", IDS_LANG);
+    }
 }
 
 void Kard::slotToggleSound()
