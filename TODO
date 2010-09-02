@@ -1,15 +1,44 @@
 TODO - KARD
------------------
+-----------
+updated 2 September 2010
+-----------
 
-- THEME MANAGER in separate code
+General ideas
+- use KVTML as file format either for 2 words entries or for 2 pictures or for 1 word/1 picture, same with sounds
+- develop an easy-to-use KVTML editor with drag and drop pictures and sounds 
+- THEME MANAGER in separate code for card themes
+- allow to have different cards backgrounds instead of the ?
 
---------------------
-
-New ideas
-- see how to make the cards in QPainter with a background (background is a png and could be changed)
+Implementation
+- see how to make the cards in QPainter (or using plasma?) with a background (background is a png and could be changed)
 - see how to flip the cards to show them (rotate around y axis)
 - see how to add a picture under the cards so when the pairs are gone the picture is discovered
-- animate the pair to be put on the side
+- animate the pair to be put on the side if the cards match
+- animate the pair to be highlighted in front for 2 seconds if the cards do not match
+
+- use KNewStuff for themes when there are more than 10
+- combobox in toolbar for themes or themes in a vertical list by the side of the game?
+
+
+THEMES
+- pic + word theme via KNewStuff using all pics  (house, colors, animals, shapes, food) Per language. File format to be decided. Script to write to allow easy translation from english to other languages. Put file in i18n modules (when/if Kard moves in a keg or another module)?
+- implement KNewStuff to get other syllables theme and new pic themes.
+- Syllables mode per language. DONE ->use KVTML
+- associate sound and letters/syllables (using KLettres data) <- filter to kvtml?
+- theme with pictures of instruments
+- associate the pictures with sounds
+- theme with sounds only
+
+GUI
+- have a picture as background so that when the cards are matched this picture appears
+
+MORE LONG TERM GOAL
+- develop a board which could load several young-kids oriented apps: Kard, Klettres, KHangMan, Blinken, 
+a drawing+stamps tool, Potato-Guy? and others to be decided. 
+Maybe similar to GCompris. GUI to be worked on. Plugins.
+
+
+
 
 -------------------------------
 [10:26:18] <pinotree> annma: you could use triple-buffering
@@ -24,23 +53,3 @@ New ideas
 [10:27:56] <pinotree> and bitblt again over the background
 [10:28:04] <pinotree> so you avoid flickering
 ----------------------------------
-
-- use KNewStuff for themes when there are more than 10
-- combobox in toolbar for themes
-- translatorHowTo to explain how to make syllables.txt
-
-THEMES
-- pic + word theme via KNewStuff using all pics  (house, colors, animals, shapes, food) Per language. File format to be decided. Script to write to allow easy translation from english to other languages. Put file in i18n modules (when/if Kard moves in a keg or another module)?
-- implement KNewStuff to get other syllables theme and new pic themes.
-- Syllables mode per language. DONE
-- associate sound and letters/syllables (using KLettres data)
-- theme with pictures of instruments
-- associate the pictures with sounds
-- theme with sounds only
-
-GUI
-- have a picture as background so that when the cards are matched this picture appears
-
-MORE LONG TERM GOAL
-- develop a board which could load several young-kids oriented apps: kard, klettres, Simon says -like, a drawing+stamps tool, Potato-Guy? and others to be decided. Maybe similar to GCompris. GUI to be worked on. Plugins.
-
