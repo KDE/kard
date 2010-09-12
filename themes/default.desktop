@@ -1,0 +1,9 @@
+[KGameTheme]
+Name=Default
+
+Description=Default theme.
+
+Author=Ian Wadham, Eugene Trounev
+FileName=default.svg
+Type=SVG
+Preview=default.png

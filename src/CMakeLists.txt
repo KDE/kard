@@ -13,17 +13,20 @@ set(kard_SRCS
    kard.cpp 
    kardview.cpp 
    kardwidget.cpp 
-   kardtheme.cpp )
+   kardtheme.cpp 
+   kgametheme/kgametheme.cpp
+   kgametheme/kgamethemeselector.cpp)
 
 kde4_add_ui_files(kard_SRCS 
    generalui.ui 
-   themeui.ui )
+   themeui.ui 
+   kgametheme/kgamethemeselector.ui)
 
 kde4_add_kcfg_files(kard_SRCS kardsettings.kcfgc )
 
 kde4_add_executable(kard ${kard_SRCS})
 
-target_link_libraries(kard ${KDE4_KDEUI_LIBS} ${KDE4_PHONON_LIBRARY} ${QT_QT3SUPPORT_LIBRARY} )
+target_link_libraries(kard ${KDE4_KDEUI_LIBS} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBRARY} ${QT_QT3SUPPORT_LIBRARY} )
 
 install(TARGETS kard  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

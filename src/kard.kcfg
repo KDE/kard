@@ -5,7 +5,7 @@
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="kardrc"/> 
   <group name="General"> 
-      <entry name="Theme" type="Enum">
+      <entry name="KardTheme" type="Enum">
       <label>Select the theme you want</label>
       <choices>
         <choice name="colors"/>
@@ -16,6 +16,10 @@
 	<choice name="food"/>
       </choices>
       <default>colors</default>
+    </entry>
+        <entry name="Theme" type="String">
+      <label>Theme to use for the back of the cards</label>
+      <default>themes/default.desktop</default>
     </entry>
      <entry name="Time" type="Enum">
       <label>Select the speed you want the cards to be displayed</label>

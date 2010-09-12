@@ -142,30 +142,30 @@ void KardView::game()
 	for (int j=0; j<m; j++)  {
 	    shuffle[i][j]=(t[ni]+p)%24;
 	    QPalette pal;
-	    switch (KardSettings::theme()) {
-		case KardSettings::EnumTheme::colors:
+	    switch (KardSettings::kardTheme()) {
+		case KardSettings::EnumKardTheme::colors:
 		    pal.setColor(QPalette::Active, QPalette::Window, QColor(a[shuffle[i][j]]));
 		    k[i][j]->m_kardW->setPalette(pal);
 		    break;
-		case KardSettings::EnumTheme::house:
+		case KardSettings::EnumKardTheme::house:
 		    k[i][j]->m_kardW->setPixmap(px[shuffle[i][j]]);
 		    k[i][j]->m_kardW->setScaledContents(true);
 		    break;
-		case KardSettings::EnumTheme::opposites:
+		case KardSettings::EnumKardTheme::opposites:
 		    k[i][j]->m_kardW->setPixmap(px[shuffle[i][j]]);
 		    k[i][j]->m_kardW->setScaledContents(true);
 		    break;
-		case KardSettings::EnumTheme::syllables:
+		case KardSettings::EnumKardTheme::syllables:
 		    k[i][j]->m_kardW->setText(text[shuffle[i][j]]);
 		    k[i][j]->m_kardW->setFont(QFont(KGlobalSettings::generalFont().family(), 44, QFont::Bold));
 		    k[i][j]->m_kardW->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 		    k[i][j]->m_kardW->setScaledContents(true);
 		    break;
-		case KardSettings::EnumTheme::animals:
+		case KardSettings::EnumKardTheme::animals:
 		    k[i][j]->m_kardW->setPixmap(px[shuffle[i][j]]);
 		    k[i][j]->m_kardW->setScaledContents(true);
 		    break;
-		case KardSettings::EnumTheme::food:
+		case KardSettings::EnumKardTheme::food:
 		    k[i][j]->m_kardW->setPixmap(px[shuffle[i][j]]);
 		    k[i][j]->m_kardW->setScaledContents(true);
 		    break;

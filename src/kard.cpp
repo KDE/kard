@@ -43,6 +43,8 @@
 // Settings
 #include "kardsettings.h"
 
+#include "kgametheme/kgamethemeselector.h"
+
 Phonon::MediaObject *Kard::mplayer = 0L;
 
 Kard::Kard() : KXmlGuiWindow(), m_view(new KardView(this))
@@ -143,6 +145,8 @@ void Kard::optionsPreferences()
     ui_theme.setupUi(themeSettingsDlg);
     dialog->addPage(themeSettingsDlg, i18n("Theme"), "colors");
     connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(slotUpdateSettings(const QString &)));
+    dialog->addPage(new KGameThemeSelector(dialog, KardSettings::self(), KGameThemeSelector::NewStuffDisableDownload),
+                        i18n("Theme"), "games-config-theme");
     dialog->show();
 }
 
@@ -190,10 +194,10 @@ void Kard::slotUpdateSettings(const QString &)
 
 void Kard::slotSetTheme(int id)
 {
-    KardSettings::setTheme(id);
+    KardSettings::setKardTheme(id);
     KardSettings::self()->writeConfig();
     m_view->theme =KardThemeFactory::instance()->buildTheme(id)->name();
-    m_themeAction->setCurrentItem(KardSettings::theme());
+    m_themeAction->setCurrentItem(KardSettings::kardTheme());
     changeStatusbar(i18n("Theme: %1", KardThemeFactory::instance()->buildTheme(id)->uiName()), IDS_THEME);
     changeLanguage();
     if (m_boardChanged) {
@@ -203,9 +207,9 @@ void Kard::slotSetTheme(int id)
 
 void Kard::slotUpdateTheme()
 {
-    m_view->theme = KardThemeFactory::instance()->themeList()[KardSettings::theme()];
-    m_themeAction->setCurrentItem(KardSettings::theme());
-    changeStatusbar(i18n("Theme: %1", KardThemeFactory::instance()->buildTheme(KardSettings::theme())->uiName()), IDS_THEME);
+    m_view->theme = KardThemeFactory::instance()->themeList()[KardSettings::kardTheme()];
+    m_themeAction->setCurrentItem(KardSettings::kardTheme());
+    changeStatusbar(i18n("Theme: %1", KardThemeFactory::instance()->buildTheme(KardSettings::kardTheme())->uiName()), IDS_THEME);
     m_boardChanged = true;
 }
 
