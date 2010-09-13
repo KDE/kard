@@ -14,7 +14,11 @@
 //Qt headers
 #include <QLabel>
 #include <QMouseEvent>
+#include <QPixmap>
 #include <QResizeEvent>
+#include <QSvgWidget>
+
+class QSvgRenderer;
 
 /**
  * This class represents each single card widget.  The m_gray label
@@ -39,7 +43,7 @@ public:
     ~KardWidget();
 
     ///the back of the card
-    QLabel* m_gray;
+    QSvgWidget* m_gray;
     ///the painted side of the card
     QLabel *m_kardW;
 
@@ -55,6 +59,13 @@ protected:
     * @param e the event
     */
     virtual void resizeEvent( QResizeEvent * e );
+    
+    QSize sizeHint();
+    
+    void setKardBack();
+    
+    //void paintEvent( QPaintEvent * );
+
 
 signals: // Signals
     void clicked();
