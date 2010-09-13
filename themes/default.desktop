@@ -1,7 +1,9 @@
 [KGameTheme]
 Name=Default
+Name[x-test]=xxDefaultxx
 
 Description=Default theme.
+Description[x-test]=xxDefault theme.xx
 
 Author=Ian Wadham, Eugene Trounev
 FileName=default.svg
