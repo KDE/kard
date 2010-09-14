@@ -1,8 +1,16 @@
 [KGameTheme]
 Name=Default
+Name[pt]=Predefinição
+Name[pt_BR]=Padrão
+Name[sv]=Standard
+Name[uk]=Типова
 Name[x-test]=xxDefaultxx
 
 Description=Default theme.
+Description[pt]=O tema predefinido.
+Description[pt_BR]=Tema padrão.
+Description[sv]=Standardtema.
+Description[uk]=Типова тема.
 Description[x-test]=xxDefault theme.xx
 
 Author=Ian Wadham, Eugene Trounev
