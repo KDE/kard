@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Default
+Name[es]=Predeterminado
 Name[mai]=मूलभूत
 Name[pt]=Predefinição
 Name[pt_BR]=Padrão
@@ -8,6 +9,7 @@ Name[uk]=Типова
 Name[x-test]=xxDefaultxx
 
 Description=Default theme.
+Description[es]=Tema predeterminado.
 Description[pt]=O tema predefinido.
 Description[pt_BR]=Tema padrão.
 Description[sv]=Standardtema.
