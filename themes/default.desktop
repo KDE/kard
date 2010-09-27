@@ -2,6 +2,7 @@
 Name=Default
 Name[es]=Predeterminado
 Name[mai]=मूलभूत
+Name[nds]=Standard
 Name[pt]=Predefinição
 Name[pt_BR]=Padrão
 Name[sv]=Standard
@@ -10,6 +11,7 @@ Name[x-test]=xxDefaultxx
 
 Description=Default theme.
 Description[es]=Tema predeterminado.
+Description[nds]=Standardmuster.
 Description[pt]=O tema predefinido.
 Description[pt_BR]=Tema padrão.
 Description[sv]=Standardtema.
