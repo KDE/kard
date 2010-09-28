@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Default
 Name[es]=Predeterminado
+Name[et]=Vaikimisi
 Name[mai]=मूलभूत
 Name[nds]=Standard
 Name[pt]=Predefinição
@@ -11,6 +12,7 @@ Name[x-test]=xxDefaultxx
 
 Description=Default theme.
 Description[es]=Tema predeterminado.
+Description[et]=Vaiketeema.
 Description[nds]=Standardmuster.
 Description[pt]=O tema predefinido.
 Description[pt_BR]=Tema padrão.
