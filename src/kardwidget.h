@@ -60,7 +60,7 @@ protected:
     */
     virtual void resizeEvent( QResizeEvent * e );
     
-    QSize sizeHint();
+    QSize sizeHint() const;
     
     void setKardBack();
     

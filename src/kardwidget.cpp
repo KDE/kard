@@ -59,7 +59,7 @@ void KardWidget::resizeEvent( QResizeEvent * )
     m_gray->setGeometry(0, 0, m_kardW->width(), m_kardW->height());
 }
 
-QSize KardWidget::sizeHint () 
+QSize KardWidget::sizeHint() const
 {
     return QSize (m_kardW->width(), m_kardW->height());
 }
