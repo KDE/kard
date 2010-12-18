@@ -5,4 +5,5 @@ include(KDE4Defaults)
 
 add_subdirectory( src ) 
 add_subdirectory( themes )
+add_subdirectory( doc )
 
