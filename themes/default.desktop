@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Default
+Name[cs]=Výchozí
 Name[es]=Predeterminado
 Name[et]=Vaikimisi
 Name[fr]=Par défaut
@@ -13,6 +14,7 @@ Name[uk]=Типова
 Name[x-test]=xxDefaultxx
 
 Description=Default theme.
+Description[cs]=Výchozí motiv.
 Description[es]=Tema predeterminado.
 Description[et]=Vaiketeema.
 Description[fr]=Thème par défaut.
