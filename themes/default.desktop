@@ -15,6 +15,7 @@ Name[sv]=Standard
 Name[ug]=كۆڭۈلدىكى
 Name[uk]=Типова
 Name[x-test]=xxDefaultxx
+Name[zh_CN]=默认
 
 Description=Default theme.
 Description[cs]=Výchozí motiv.
@@ -30,6 +31,7 @@ Description[pt_BR]=Tema padrão.
 Description[sv]=Standardtema.
 Description[uk]=Типова тема.
 Description[x-test]=xxDefault theme.xx
+Description[zh_CN]=默认主题.
 
 Author=Ian Wadham, Eugene Trounev
 FileName=default.svg
