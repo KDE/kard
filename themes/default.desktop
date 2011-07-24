@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Default
+Name[bg]=По подразбиране
 Name[cs]=Výchozí
 Name[de]=Standard
 Name[es]=Predeterminado
@@ -20,6 +21,7 @@ Name[x-test]=xxDefaultxx
 Name[zh_CN]=默认
 
 Description=Default theme.
+Description[bg]=Тема по подразбиране.
 Description[cs]=Výchozí motiv.
 Description[de]=Standard-Design.
 Description[es]=Tema predeterminado.
