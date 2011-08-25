@@ -27,7 +27,7 @@ kde4_add_kcfg_files(kard_SRCS kardsettings.kcfgc )
 
 kde4_add_executable(kard ${kard_SRCS})
 
-target_link_libraries(kard ${KDE4_KDEUI_LIBS} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBRARY} ${QT_QT3SUPPORT_LIBRARY} )
+target_link_libraries(kard ${KDE4_KDEUI_LIBS} ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBRARY} )
 
 install(TARGETS kard  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
