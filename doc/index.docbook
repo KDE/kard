@@ -6,9 +6,9 @@
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
 
-<book lang="&language;">
+<book id="kard" lang="&language;">
 
-<bookinfo>
+<book id="kard"info>
 <title>The Kard Handbook</title>
 
 <authorgroup>
