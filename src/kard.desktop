@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Kard
 Name[bg]=Kard
+Name[bs]=Kard
 Name[cs]=Kard
 Name[de]=Kard
 Name[el]=Kard
@@ -40,6 +41,7 @@ Type=Application
 X-DocPath=kard/index.html
 GenericName=Memory-like game
 GenericName[bg]=Игра за упражнение на паметта
+GenericName[bs]=Igra memorisanja
 GenericName[cs]=Hra podobná pexesu
 GenericName[de]=Memory-ähnliches Spiel
 GenericName[el]=Παιχνίδι μνήμης
@@ -73,6 +75,7 @@ GenericName[zh_CN]=记忆游戏
 GenericName[zh_TW]=記憶遊戲
 Comment=Memory-like game for KDE
 Comment[bg]=Игра за упражнение на паметта (KDE)
+Comment[bs]=Igra memorisanja za KDE
 Comment[cs]=Hra podobná pexesu pro KDE
 Comment[de]=Memory-ähnliches Spiel für KDE
 Comment[el]=Παιχνίδι μνήμης για το KDE
