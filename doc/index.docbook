@@ -276,25 +276,6 @@ Documentation copyright 2004 Anne-Marie Mahfouf <email>annma@kde.org</email>
 
 
 
-<appendix id="installation">
-<title>Installation</title>
-
-<sect1 id="getting-kard">
-<title>How to obtain Kard</title>
-
-&install.intro.documentation;
-
-</sect1>
-
-<sect1 id="compilation">
-<title>Compilation and Installation</title>
-
-&install.compile.documentation;
-
-</sect1>
-
-</appendix>
-
 &documentation.index;
 </book>
 <!--
