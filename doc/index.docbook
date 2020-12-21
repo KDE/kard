@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY kapp "&kard;"><!-- replace kturtle here -->
-  <!ENTITY package "kdenonbeta">
+
+  <!ENTITY kard "<application>Kard</application>">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
@@ -9,7 +9,7 @@
 <book id="kard" lang="&language;">
 
 <bookinfo>
-<title>The Kard Handbook</title>
+<title>The &kard; Handbook</title>
 
 <authorgroup>
 <author>
@@ -35,14 +35,14 @@
 
 <abstract>
 <para>
-Kard is a Memory like game for young kids: turn 2 cards and match them! The aim of the game is to help very young children to move the mouse and also to educate memory, concentration and shapes/letters recognition for older children.
+&kard; is a Memory like game for young kids: turn 2 cards and match them! The aim of the game is to help very young children to move the mouse and also to educate memory, concentration and shapes/letters recognition for older children.
 </para>
 </abstract>
 
 <keywordset>
 <keyword>KDE</keyword>
 <keyword>kdeedu</keyword>
-<keyword>Kard</keyword>
+<keyword>kard</keyword>
 <keyword>colors</keyword>
 <keyword>pair</keyword>
 <keyword>child</keyword>
@@ -52,10 +52,10 @@ Kard is a Memory like game for young kids: turn 2 cards and match them! The aim 
 
 <chapter id="introduction">
 <title>Introduction</title>
-          <para>Kard is  memory like game for kids. The board displays a set of hidden cards. Turn 2 cards and match them. When the cards form a pair, they disappear. The game finishes when all cards are gone.</para>
+          <para>&kard; is  memory like game for kids. The board displays a set of hidden cards. Turn 2 cards and match them. When the cards form a pair, they disappear. The game finishes when all cards are gone.</para>
      
 <para>
-Kard features:
+&kard; features:
 <itemizedlist>
 <listitem><para>
  a number of cards from 4 to 24. 4 cards mode (2 pairs) allows a very young child to begin controling the mouse.
@@ -74,32 +74,32 @@ a full-screen mode
 </chapter>
 
 <chapter id="using-kard">
-<title>Using Kard</title>
-<para>The Kard main window consist of the hidden cards on a board, a menubar, a toolbar and a statusbar. You have to click on 2 cards, the card is then turned and the drawing on it appears. If the 2 cards match, they are removed. You finish the game when all pairs are gone.</para>
+<title>Using &kard;</title>
+<para>The &kard; main window consist of the hidden cards on a board, a menubar, a toolbar and a statusbar. You have to click on 2 cards, the card is then turned and the drawing on it appears. If the 2 cards match, they are removed. You finish the game when all pairs are gone.</para>
 <screenshot>
-     <screeninfo>Here's a screenshot of Kard when you start it for the first time</screeninfo>
+     <screeninfo>Here's a screenshot of &kard; when you start it for the first time</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="mainwindow.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
-	    <phrase>Kard Main Window</phrase>
+	    <phrase>&kard; Main Window</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
-<para>Kard the first time you run it: 16 cards is default and the theme is "colors".</para>
+<para>&kard; the first time you run it: 16 cards is default and the theme is "colors".</para>
 
 <sect1 id="board">
 <title>The board</title>
 <para>
-You can choose in the toolbar or in <guimenu>Settings</guimenu> <guimenuitem>Configure Kard...</guimenuitem> how many cards you want to display. Four cards is an easy mode for young children while 24 cards is the hardest mode. 
+You can choose in the toolbar or in <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure &kard;...</guimenuitem></menuchoice> how many cards you want to display. Four cards is an easy mode for young children while 24 cards is the hardest mode.
 </para>
 </sect1>
 
 <sect1 id="menubar">
 <title>The menubar</title>
 <para>
-You can choose in the toolbar or in <guimenu>Settings</guimenu> <guimenuitem>Configure Kard...</guimenuitem> how many cards you want to display. Four cards is an easy mode for young children while 24 cards is the hardest mode. 
+You can choose in the toolbar or in <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure &kard;...</guimenuitem></menuchoice> how many cards you want to display. Four cards is an easy mode for young children while 24 cards is the hardest mode.
 </para>
 </sect1>
 		
@@ -110,7 +110,7 @@ You can choose in the toolbar or in <guimenu>Settings</guimenu> <guimenuitem>Con
 <title>Command Reference</title>
 
 <sect1  id="kard-file-menu">
-<title>The <guimenu>File</guimenu> Menu</title>
+<title>The File Menu</title>
 <para>
 <variablelist>
 <varlistentry>
@@ -121,7 +121,7 @@ You can choose in the toolbar or in <guimenu>Settings</guimenu> <guimenuitem>Con
 <guimenu>File</guimenu>
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Quit</action> Kard.</para></listitem>
+<listitem><para><action>Quit</action> &kard;.</para></listitem>
 </varlistentry>
 
 </variablelist>
@@ -129,7 +129,7 @@ You can choose in the toolbar or in <guimenu>Settings</guimenu> <guimenuitem>Con
 </sect1>
 
 <sect1  id="kard-settings-menu">
-<title>The <guimenu>Settings</guimenu> Menu</title>
+<title>The Settings Menu</title>
 <para>
 <variablelist>
 <varlistentry>
@@ -166,7 +166,7 @@ You can choose in the toolbar or in <guimenu>Settings</guimenu> <guimenuitem>Con
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Kard...</guimenuitem>
+<guimenuitem>Configure &kard;...</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Open</action> a dialog which allows you to configure the theme of the cards and the timer duration.</para></listitem>
 </varlistentry>
@@ -175,55 +175,18 @@ You can choose in the toolbar or in <guimenu>Settings</guimenu> <guimenuitem>Con
 </sect1>
 
 <sect1  id="kard-help-menu">
-<title>The <guimenu>Help</guimenu> Menu</title>
-<para>
-<variablelist>
-<varlistentry>
-<term><menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>Kard Handbook</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Open</action> this handbook in the KHelpCenter.</para></listitem>
-</varlistentry>
-<varlistentry>
-<term><menuchoice>
-<shortcut>
-<keycombo>&Ctrl;<keycap>F1</keycap></keycombo>
-</shortcut>
-<guimenu>Help</guimenu>
-<guimenuitem>What's This?</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Open</action> this handbook in the KHelpCenter.</para></listitem>
-</varlistentry>
-<varlistentry>
-<term><menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>Report Bug...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Open</action> a dialog that allows you to easily report a bug in Kard. Fill up the fields and send it!</para></listitem>
-</varlistentry>
-<varlistentry>
-<term><menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>About KDE</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Open</action> a dialog that indicates the KDE version and gives you some indications about the KDE project.</para></listitem>
-</varlistentry>
-<varlistentry>
-<term><menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>About Kard</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Open</action> a dialog that gives you the Kard version, the author name and email, the contributors names and the licence.</para></listitem>
-</varlistentry>
-</variablelist>
+<title>The Help Menu</title>
+<para>&kalzium; has the common &kde; <guimenu>Help</guimenu> menu items,
+for more information read the section about the
+<ulink url="help:/fundamentals/menus.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
 </para>
 </sect1>
 
 </chapter>
 
 <chapter id="developers">
-<title>Developer's Guide to Kard</title>
+<title>Developer's Guide to &kard;</title>
 
 <para>
 
@@ -240,7 +203,7 @@ Not yet written
 <title>Credits and License</title>
 
 <para>
-Kard
+&kard;
 </para>
 <para>
 Program copyright 2001-2004 Anne-Marie Mahfouf <email>annma@kde.org</email>
